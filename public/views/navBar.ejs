@@ -1,0 +1,49 @@
+<nav role="navigation" id="myNavBar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar-header">
+                    <button type="button" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li id="navItemIndex" class="active">
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/#/about">About Me</a>
+                        </li>
+                        <li>
+                            <a href="/#/projects">Projects</a></li>
+                        <li>
+                            <a href="/#/blog">Blog</a>
+                        </li>
+                    </ul>
+                    <ul ng-show="$ctrl.loggedIn" class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/dashboard/">My Account</a>
+                        </li>
+                        <li>
+                            <a href="/messages">Inbox</a>
+                        </li>
+                        <li ng-click="$ctrl.logInToggle()">
+                            <a>Logout</a>
+                        </li>
+
+                    </ul>
+                    <ul ng-hide="$ctrl.loggedIn" class="nav navbar-nav navbar-right">
+                        <li ng-click="$ctrl.logInToggle()" id="navItemLogin">
+                            <a>Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
