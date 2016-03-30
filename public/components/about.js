@@ -3,5 +3,5 @@
  */
 angular.module('about-module', [])
     .component('aboutComponent',{
-       templateUrl: '/views/about.ejs'
+       templateUrl: 'public/views/about.ejs'
     });

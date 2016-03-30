@@ -1,1 +1,9 @@
-<h2>Projects</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <button ng-show="$ctrl.projectActivated" ng-click="$ctrl.projectActivated = !$ctrl.projectActivated">Return to Project List</button>
+            <project-list ng-hide="$ctrl.projectActivated" projects="$ctrl.list" on-Activate="$ctrl.activateProject(num)"></project-list>
+            <project-detail ng-show="$ctrl.projectActivated" active-project="$ctrl.list[$ctrl.activeProject]"></project-detail>
+        </div>
+    </div>
+</div>

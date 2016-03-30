@@ -16,28 +16,20 @@
                             <a href="/">Home</a>
                         </li>
                         <li>
-                            <a href="/#/about">About Me</a>
+                            <a href="/#/projects">Projects</a>
                         </li>
                         <li>
-                            <a href="/#/projects">Projects</a></li>
+                            <a href="/#/contact">Contact</a>
+                        </li>
                         <li>
                             <a href="/#/blog">Blog</a>
                         </li>
                     </ul>
-                    <ul ng-show="$ctrl.loggedIn" class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="/dashboard/">My Account</a>
-                        </li>
-                        <li>
-                            <a href="/messages">Inbox</a>
-                        </li>
-                        <li ng-click="$ctrl.logInToggle()">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li ng-show="$ctrl.loggedIn"  ng-click="$ctrl.logInToggle()">
                             <a>Logout</a>
                         </li>
-
-                    </ul>
-                    <ul ng-hide="$ctrl.loggedIn" class="nav navbar-nav navbar-right">
-                        <li ng-click="$ctrl.logInToggle()" id="navItemLogin">
+                        <li ng-hide="$ctrl.loggedIn"  ng-click="$ctrl.logInToggle()" id="navItemLogin">
                             <a>Login</a>
                         </li>
                     </ul>

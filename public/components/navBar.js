@@ -3,7 +3,7 @@
  */
 angular.module('meanPortfolio')
     .component('navBar', {
-        templateUrl: '/views/navBar.ejs',
+        templateUrl: 'public/views/navBar.ejs',
         controller: navBarCtrl
     })
     .controller('navBarCtrl', navBarCtrl);

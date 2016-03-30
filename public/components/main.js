@@ -7,9 +7,10 @@ angular.module('meanPortfolio',['ngComponentRouter','about-module', 'projects-mo
     })*/
     .value('$routerRootComponent','main')
     .component('main', {
+        template: '<ng-outlet></ng-outlet>',
         $routeConfig: [
             {path: '/about/', name: 'AboutMe', component: 'aboutComponent', useAsDefault:true},
             {path: '/projects/', name: 'Projects', component: 'projectsComponent'}
         ]
-    })
-    .controller('MainCtrl', MainCtrl);
+    });
+
