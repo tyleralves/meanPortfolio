@@ -13,7 +13,6 @@ require('./models/projects');
 mongoose.connect('mongodb://tyler11alves:bernard@ds011860.mlab.com:11860/heroku_ffpsrxqx');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
