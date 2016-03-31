@@ -1,8 +1,68 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
+
+/* ## Project List ## */
+#pl-collage-container {
+    height: 900px;
+    line-height: 10px;
+    margin-right: 5%;
+    width: 95%;
+
+    -webkit-column-count: 2;
+    -webkit-column-gap: 10px;
+    -moz-column-count: 2;
+    -moz-column-gap: 10px;
+    column-count: 2;
+    column-gap: 10px;
+}
+
+.pl-collage-col-1 {
+    margin-left: -14.4%;
+}
+
+.pl-collage-col-2 {
+    margin-right: 14.4%;
+}
+
+.pl-image-grid-1 {
+    width: 100%;
+}
+
+.pl-image-grid-2 {
+    width: 50%;
+    margin-top: 10px;
+    padding: 0;
+    display: inline-block;
+}
+
+.pl-image-grid-3 {
+    width: 100%;
+}
+
+.pl-image-grid-4 {
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+.pl-image-container-2>img:first-of-type {
+    margin-right: -4px;
+    padding-right: 2.5px;
+}
+
+.pl-image-container-2>img:nth-of-type(2) {
+    padding-left: 2.5px;
+}
+
+.pl-image-container-2 {
+    margin-bottom: 500px;
+}
+
+
+
+

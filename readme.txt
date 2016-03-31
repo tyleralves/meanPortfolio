@@ -30,3 +30,9 @@ cd C:\program files\mongodb\server\3.2\bin
 
 Local mongo server (now using MongoLab database):
 mongod --dbpath C:\Users\Tyler\WebstormProjects\meanPortfolio\data
+
+
+NOW:
+PROJECT LIST LAYOUT MASONRY
+1. Desktop
+2. Mobile

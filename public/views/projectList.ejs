@@ -1,9 +1,20 @@
 <div class="row">
-    <div class="col-md-6 col-sm-4 col-xs-6" ng-repeat="project in $ctrl.projects" ng-click="$ctrl.onActivate({num: $index})">
-        <div class="project-preview">
-            <img src="public/images/map.jpg" class="img-responsive"/>
-            <h4>{{project.title}}</h4><br>
-            <div>Mongo, Express</div>
+    <div class="col-xs-12">
+
+        <div id="pl-collage-container">
+            <div class="pl-collage-col-1 pl-image-container-1">
+                <img src="public/images/map.jpg" class="pl-image-grid-1" id="pl-image-1" ng-click="$ctrl.onActivate({num: 0})">
+            </div>
+            <div class="pl-collage-col-1 pl-image-container-2">
+                <img src="public/images/map.jpg" class="pl-image-grid-2" id="pl-image-2" ng-click="$ctrl.onActivate({num: 1})">
+                <img src="public/images/map.jpg" class="pl-image-grid-2" id="pl-image-3" ng-click="$ctrl.onActivate({num: 2})">
+            </div>
+            <div class="pl-collage-col-2 pl-image-container-3">
+                <img src="public/images/map.jpg" class="pl-image-grid-3" id="pl-image-4" ng-click="$ctrl.onActivate({num: 3})">
+            </div>
+            <div class="pl-collage-col-2 pl-image-container-4">
+                <img src="public/images/map.jpg" class="pl-image-grid-4" id="pl-image-5" ng-click="$ctrl.onActivate({num: 4})">
+            </div>
         </div>
     </div>
 </div>
