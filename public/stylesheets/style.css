@@ -9,24 +9,24 @@ a {
 /* ## Project List ## */
 #pl-collage-container {
     height: 900px;
-    line-height: 10px;
-    margin-right: 5%;
+    line-height: 15px;
+    margin-left: 7%;
     width: 95%;
 
     -webkit-column-count: 2;
-    -webkit-column-gap: 10px;
+    -webkit-column-gap: 15px;
     -moz-column-count: 2;
-    -moz-column-gap: 10px;
+    -moz-column-gap: 15px;
     column-count: 2;
-    column-gap: 10px;
+    column-gap: 15px;
 }
 
 .pl-collage-col-1 {
-    margin-left: -14.4%;
+    margin-left: -14.6%;
 }
 
 .pl-collage-col-2 {
-    margin-right: 14.4%;
+    margin-right: 14.6%;
 }
 
 .pl-image-grid-1 {
@@ -35,7 +35,7 @@ a {
 
 .pl-image-grid-2 {
     width: 50%;
-    margin-top: 10px;
+    margin-top: 15px;
     padding: 0;
     display: inline-block;
 }
@@ -45,18 +45,18 @@ a {
 }
 
 .pl-image-grid-4 {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
 }
 
 
 .pl-image-container-2>img:first-of-type {
     margin-right: -4px;
-    padding-right: 2.5px;
+    padding-right: 7.5px;
 }
 
 .pl-image-container-2>img:nth-of-type(2) {
-    padding-left: 2.5px;
+    padding-left: 7.5px;
 }
 
 .pl-image-container-2 {
