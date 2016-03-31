@@ -10,7 +10,7 @@ require('./models/images');
 require('./models/posts');
 require('./models/projects');
 
-mongoose.connect('mongodb://localhost/meanPortfolio');
+mongoose.connect(' mongodb://heroku_ffpsrxqx:jC42jvYkyaI404alwTqijAuG8Qc@ds011860.mlab.com:11860/heroku_ffpsrxqx');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
