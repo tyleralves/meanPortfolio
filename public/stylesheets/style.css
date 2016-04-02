@@ -17,12 +17,16 @@ a {
 .main-title {
     height: 8vh;
 }
-.glyphicon-menu-hamburger {
-    display: inline-block;
+
+.main-glyph-container {
+    display: flex;
+    align-items: flex-end;
     float: right;
+    height: 8vh;
+}
+.glyphicon-menu-hamburger {
     font-size: 28px;
-    position: relative;
-    top: 3vh;
+    padding-bottom: 10px;
 }
 
 /* ## Navigation ## */
@@ -41,7 +45,7 @@ a {
 /* ## Project List ## */
 
 .pl-image-col {
-    padding-left: 4vh;
+    padding-left: 2vw;
     padding-right: 0;
 
 }
