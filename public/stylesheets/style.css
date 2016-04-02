@@ -18,18 +18,22 @@ a {
     height: 65px;
 }
 
-@media screen and (min-width: 992px){
-    .main-title {
-        height: 8vh;
-    }
-}
-
 .main-glyph-container {
     display: flex;
     align-items: flex-end;
     float: right;
-    height: 8vh;
+    height: 65px;
 }
+
+@media screen and (min-width: 992px){
+    .main-title {
+        height: 8vh;
+    }
+    .main-glyph-container {
+        height: 8vh;
+    }
+}
+
 .glyphicon-menu-hamburger {
     font-size: 28px;
     padding-bottom: 10px;
@@ -51,17 +55,9 @@ a {
 /* ## Project List ## */
 
 .pl-image-col {
-    padding-left: 2vw;
-    padding-right: 0;
+    padding-left: 1vw;
+    padding-right: 1vw;
 
-}
-
-.pl-image-row>div:first-of-type {
-    padding-left: 15px;
-}
-
-.pl-image-row>div:last-of-type {
-    padding-right: 15px;
 }
 
 .pl-image-container-1,
