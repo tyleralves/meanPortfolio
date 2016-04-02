@@ -15,7 +15,13 @@ a {
 /* ## Main ## */
 
 .main-title {
-    height: 8vh;
+    height: 65px;
+}
+
+@media screen and (min-width: 992px){
+    .main-title {
+        height: 8vh;
+    }
 }
 
 .main-glyph-container {
