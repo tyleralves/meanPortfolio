@@ -4,11 +4,13 @@
 angular.module('meanPortfolio')
     .component('navBar', {
         templateUrl: 'public/views/navBar.ejs',
-        controller: navBarCtrl
-    })
-    .controller('navBarCtrl', navBarCtrl);
+        controller: NavBarCtrl,
+        bindings: {
+            onSelect: '&'
+        }
+    });
 
-function navBarCtrl(){
+function NavBarCtrl(){
     var $ctrl = this;
     this.testString = "Hello world";
     this.loggedIn = true;

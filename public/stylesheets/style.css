@@ -1,68 +1,129 @@
+/* ## Global ## */
+
 body {
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 14px "Times New Roman", Times, serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
     color: #00B7FF;
 }
 
-/* ## Project List ## */
-#pl-collage-container {
-    height: 900px;
-    line-height: 15px;
-    margin-left: 7%;
-    width: 95%;
+/* ## Main ## */
 
-    -webkit-column-count: 2;
-    -webkit-column-gap: 15px;
-    -moz-column-count: 2;
-    -moz-column-gap: 15px;
-    column-count: 2;
-    column-gap: 15px;
+.main-title {
+    height: 8vh;
 }
-
-.pl-collage-col-1 {
-    margin-left: -14.6%;
-}
-
-.pl-collage-col-2 {
-    margin-right: 14.6%;
-}
-
-.pl-image-grid-1 {
-    width: 100%;
-}
-
-.pl-image-grid-2 {
-    width: 50%;
-    margin-top: 15px;
-    padding: 0;
+.glyphicon-menu-hamburger {
     display: inline-block;
+    float: right;
+    font-size: 28px;
+    position: relative;
+    top: 3vh;
 }
 
-.pl-image-grid-3 {
-    width: 100%;
+/* ## Navigation ## */
+
+.navbar a {
+    color: black;
+    font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
 }
 
-.pl-image-grid-4 {
-    margin-top: 15px;
-    width: 100%;
+.navbar ul{
+    text-align: center;
 }
 
+/* ## Project List ## */
 
-.pl-image-container-2>img:first-of-type {
-    margin-right: -4px;
-    padding-right: 7.5px;
+.pl-image-col {
+    padding-left: 4vh;
+    padding-right: 0;
+
 }
 
-.pl-image-container-2>img:nth-of-type(2) {
-    padding-left: 7.5px;
+.pl-image-row>div:first-of-type {
+    padding-left: 15px;
+}
+
+.pl-image-row>div:last-of-type {
+    padding-right: 15px;
+}
+
+.pl-image-container-1,
+.pl-image-container-2,
+.pl-image-container-3,
+.pl-image-container-4 {
+    box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
+}
+
+.pl-image-container-1 {
+    background: url("/public/images/volunteerAppScreen.png") no-repeat;
+    background-size: cover;
+    height: 50vh;
+    position: relative;
 }
 
 .pl-image-container-2 {
-    margin-bottom: 500px;
+    background: url("/public/images/sampleScreen1.png") no-repeat;
+    background-size: cover;
+    height: 28vh;
+    margin-bottom: 4vh;
+    position: relative;
 }
 
+.pl-image-container-3 {
+    background: url("/public/images/sampleScreen2.png") no-repeat;
+    background-size: cover;
+    height: 18vh;
+    position: relative;
+}
 
+.pl-image-container-4 {
+    background: url("/public/images/portfolioScreen.png") no-repeat;
+    background-size: contain;
+    height: 50vh;
+    position: relative;
+}
 
+.pl-svg-image {
+    font:600 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    bottom: 1vh;
+    left: 1vh;
+}
+
+#pl-svg-image-2 {
+    top: 1vh;
+}
+
+.pl-desc-container {
+    line-height: 15px;
+    height: 40vh;
+
+    -webkit-column-count: 4;
+    -webkit-column-gap: 15px;
+    -moz-column-count: 4;
+    -moz-column-gap: 15px;
+    column-count: 4;
+    column-gap: 15px;
+
+    margin-top: 2vh;
+}
+
+.pl-desc-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.pl-desc-techs {
+    font-style: italic;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
 

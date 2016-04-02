@@ -10,7 +10,8 @@ require('./models/images');
 require('./models/posts');
 require('./models/projects');
 
-mongoose.connect('mongodb://tyler11alves:bernard@ds011860.mlab.com:11860/heroku_ffpsrxqx');
+//mongoose.connect('mongodb://tyler11alves:bernard@ds011860.mlab.com:11860/heroku_ffpsrxqx');
+mongoose.connect('mongodb://127.0.0.1:27017');
 
 var routes = require('./routes/index');
 

@@ -10,49 +10,19 @@
         <link rel="stylesheet" href="public/stylesheets/bootstrap.min.css" />
         <link rel="stylesheet" href="public/stylesheets/bootstrap-theme.min.css" />
         <link rel='stylesheet' href='public/stylesheets/style.css' />
-
+        <link href='node_modules/bootstrap/fonts/glyphicons-halflings-regular.woff2' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body ng-app="meanPortfolio">
         <div class="main-title">
            <div class="container-fluid">
-               <h2>Tyler Alves:<small>Web Developer, Designer, Lover</small></h2>
-               <div>--<%=post.title %></div>
+               <h2 style="display: inline-block;">Tyler Alves:<small>Web Developer, World Traveller, Climber</small></h2>
+               <span class="glyphicon glyphicon-menu-hamburger" ng-click="$ctrl.navShow = !$ctrl.navShow"></span>
            </div>
         </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-2">
-                    <div class="navbar-header">
-                        <button type="button" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed">
-                            <span class="sr-only">Toggle Navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <ul class="nav">
-                            <li class="active">
-                                <a href="/">Home</a>
-                            </li>
-                            <li>
-                                <a href="/#/projects">Projects</a>
-                            </li>
-                            <li>
-                                <a href="/#/contact">Contact</a>
-                            </li>
-                            <li>
-                                <a href="/#/blog">Blog</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-10">
-                    <main></main>
-                </div>
-            </div>
-        </div>
+        <nav-bar ng-show="$ctrl.navShow" on-select="$ctrl.navShow = !$ctrl.navShow"></nav-bar>
+        <main ng-hide="$ctrl.navShow"></main>
+
         <script src="public/javascripts/angular-1-router.js"></script>
     </body>
 </html>
