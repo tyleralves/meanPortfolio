@@ -60,40 +60,33 @@ a {
 
 }
 
-.pl-image-container-1,
-.pl-image-container-2,
-.pl-image-container-3,
-.pl-image-container-4 {
+.pl-image-container {
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
+    height: 600px;
+    margin-bottom: 15px;
+    position: relative;
 }
 
 .pl-image-container-1 {
     background: url("/public/images/volunteerAppScreen.png") no-repeat;
     background-size: cover;
-    height: 50vh;
-    position: relative;
 }
 
 .pl-image-container-2 {
     background: url("/public/images/sampleScreen1.png") no-repeat;
     background-size: cover;
-    height: 28vh;
-    margin-bottom: 4vh;
-    position: relative;
+    height: 350vh;
 }
 
 .pl-image-container-3 {
     background: url("/public/images/sampleScreen2.png") no-repeat;
     background-size: cover;
-    height: 18vh;
-    position: relative;
+    height: 235vh;
 }
 
 .pl-image-container-4 {
     background: url("/public/images/portfolioScreen.png") no-repeat;
     background-size: contain;
-    height: 50vh;
-    position: relative;
 }
 
 .pl-svg-image {
@@ -133,3 +126,19 @@ a {
     margin-bottom: 5px;
 }
 
+@media screen and (min-width: 992px){
+    .pl-image-container {
+        height: 50vh;
+        margin-bottom: 0;
+    }
+    .pl-image-container-1 {
+
+    }
+    .pl-image-container-2 {
+        height: 28vh;
+        margin-bottom: 4vh;
+    }
+    .pl-image-container-3{
+        height: 18vh;
+    }
+}
