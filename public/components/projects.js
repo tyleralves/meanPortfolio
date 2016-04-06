@@ -32,7 +32,6 @@ angular.module('projects-module', [])
 
                 $document.on('keydown', function(event){
                     scope.$apply(function(){
-                        $window.alert(JSON.stringify(event.which));
                         if(event.which === 40){
                             scope.currentProject < 4?scope.currentProject++:scope.currentProject = 1;
                         }else if(event.which === 38){
@@ -44,6 +43,27 @@ angular.module('projects-module', [])
                 angular.element($window).on('resize', function(){
                     scope.$apply(function() {
                         scope.isMediumDevice = $window.innerWidth > 992;
+                    });
+                });
+            }
+        };
+    }])
+    .directive('projectImageHighlight', ['$window', '$document', function($window,$document){
+        return {
+            restrict: 'A',
+            scope: {
+                activeHighlightProject: '='
+            },
+            link: function(scope, element, attr){
+                element.on('mouseover', function(event){
+                    scope.$apply(function(){
+                        scope.activeHighlightProject = parseInt(attr.projectNum);
+                    });
+                });
+
+                element.on('mouseout', function(event){
+                    scope.$apply(function(){
+                        scope.activeHighlightProject = 0;
                     });
                 });
             }
@@ -74,10 +94,18 @@ function ProjectCtrl() {
 
 function ProjectListCtrl($window) {
     var ctrl = this;
+    //Current project change/ small vs medium layout setup
     ctrl.currentProject = 1;
     ctrl.isMediumDevice = $window.innerWidth>992;
-
     ctrl.isCurrentProject = function(projectIndex){
         return ctrl.isMediumDevice || projectIndex===ctrl.currentProject;
     };
+
+    //Project image hover highlights project description
+    ctrl.activeHighlightProject = 0;
+
+    ctrl.changeActiveDesc = function(descNum){
+        return ctrl.activeHighlightProject === descNum?'active-project-title':'';
+    };
+
 }

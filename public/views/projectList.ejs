@@ -1,6 +1,6 @@
 <div project-list-current current-project="$ctrl.currentProject" is-medium-device="$ctrl.isMediumDevice" class="row pl-image-row">
     <div class="col-md-5 pl-image-col">
-        <div ng-show="$ctrl.isCurrentProject(1)" class="pl-image-container pl-image-container-1">
+        <div project-image-highlight project-num="1" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(1)" class="pl-image-container pl-image-container-1">
             <div class="visible-md-block visible-lg-block pl-image-caption">
                 <h4 class="test">Volunteer App</h4>
             </div>
@@ -12,8 +12,9 @@
             </svg>
         </div>
     </div>
+
     <div class="col-md-4 pl-image-col">
-        <div ng-show="$ctrl.isCurrentProject(2)" class="pl-image-container pl-image-container-2">
+        <div project-image-highlight project-num="2" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(2)" class="pl-image-container pl-image-container-2">
             <div class="visible-md-block visible-lg-block pl-image-caption">
                 <h4>Vanilla JS Quiz</h4>
             </div>
@@ -24,7 +25,8 @@
                 </g>
             </svg>
         </div>
-        <div ng-show="$ctrl.isCurrentProject(3)" class="pl-image-container pl-image-container-3">
+
+        <div project-image-highlight project-num="3" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(3)" class="pl-image-container pl-image-container-3">
             <div class="visible-md-block visible-lg-block pl-image-caption">
                 <h4>MEAN Blog</h4>
                 <div class="btn btn-default">Visit Site</div>
@@ -38,7 +40,7 @@
         </div>
     </div>
     <div class="col-md-3 pl-image-col">
-        <div ng-show="$ctrl.isCurrentProject(4)" class="pl-image-container pl-image-container-4">
+        <div project-image-highlight project-num="4" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(4)" class="pl-image-container pl-image-container-4">
             <div class="visible-md-block visible-lg-block pl-image-caption">
                 <h4>Personal Portfolio</h4>
             </div>
@@ -53,46 +55,58 @@
 </div>
 <div class="row">
     <div class="visible-md-block visible-lg-block col-md-12">
-        <div class="pl-desc-container">
-            <h4 class="pl-desc-title">
-                <span class="pl-desc-num-1">1</span> | Volunteer App
-            </h4>
-            <div class="pl-desc-techs">
-                MongoDB (Mongoose), Express, PassportJS User Authentication, Handlebars Templating
+        <div class="pl-desc-wrapper">
+            <div ng-class="$ctrl.changeActiveDesc(1)" class="pl-desc-container">
+                <h4 class="pl-desc-title">
+                    1 | Volunteer App
+                </h4>
+                <div class="pl-desc-techs">
+                    MongoDB (Mongoose), Express, PassportJS User Authentication, Handlebars Templating
+                </div>
+                <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare in eros nec semper. Vivamus sed elit eu tellus tincidunt ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus ornare suscipit nunc ut auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id enim lacinia, aliquet tellus sit amet, iaculis diam. Integer dolor mauris, malesuada eu sem in, mollis aliquam justo. Aliquam egestas metus sed urna tincidunt tempor. Integer sapien tellus, blandit nec vehicula id, fermentum sit amet dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus ornare suscipit nunc ut auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id enim lacinia, aliquet tellus sit amet, iaculis diam. Integer dolor mauris, malesuada eu sem in, mollis aliquam justo. Aliquam egestas metus sed urna tincidunt tempor. Integer sapien tellus, blandit nec vehicula id, fermentum sit amet dolor.
+                </span>
             </div>
-            <span>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare in eros nec semper. Vivamus sed elit eu tellus tincidunt ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus ornare suscipit nunc ut auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id enim lacinia, aliquet tellus sit amet, iaculis diam. Integer dolor mauris, malesuada eu sem in, mollis aliquam justo. Aliquam egestas metus sed urna tincidunt tempor. Integer sapien tellus, blandit nec vehicula id, fermentum sit amet dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus ornare suscipit nunc ut auctor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id enim lacinia, aliquet tellus sit amet, iaculis diam. Integer dolor mauris, malesuada eu sem in, mollis aliquam justo. Aliquam egestas metus sed urna tincidunt tempor. Integer sapien tellus, blandit nec vehicula id, fermentum sit amet dolor.
-            </span>
-            <h4 class="pl-desc-title">
-                <span class="pl-desc-num-2">2</span> | Vanilla JS Quiz
-            </h4>
-            <div class="pl-desc-techs">
-                MongoDB (Mongoose), Express, PassportJS User Authentication, Handlebars Templating
+
+            <div ng-class="$ctrl.changeActiveDesc(2)" class="pl-desc-container">
+                <h4 class="pl-desc-title">
+                    2 | Vanilla JS Quiz
+                </h4>
+                <div class="pl-desc-techs">
+                    MongoDB (Mongoose), Express, PassportJS User Authentication, Handlebars Templating
+                </div>
+                <span>
+                Mauris ut nibh ut nunc pulvinar placerat hendrerit ut leo. Vivamus justo quam, aliquam volutpat ex vitae, viverra rhoncus sapien. Cras pharetra placerat eros, a tempus velit aliquam posuere. Vestibulum et accumsan augue. Sed ac quam in magna ullamcorper finibus vitae sed lorem. Integer nulla ligula, vulputate at lorem non, pulvinar ultricies est. Curabitur efficitur tristique commodo. Donec eu ligula finibus ante aliquam bibendum. Ut gravida condimentum ipsum sit amet dignissim. Pellentesque et hendrerit dui. Donec nec mattis turpis. Curabitur viverra lacus molestie egestas pulvinar. Etiam sodales quam a scelerisque posuere. In eu lacus et arcu sagittis scelerisque sit amet in leo. Quisque quis justo sollicitudin, aliquam tellus sed, efficitur felis.
+                </span>
             </div>
-            <span>
-            Mauris ut nibh ut nunc pulvinar placerat hendrerit ut leo. Vivamus justo quam, aliquam volutpat ex vitae, viverra rhoncus sapien. Cras pharetra placerat eros, a tempus velit aliquam posuere. Vestibulum et accumsan augue. Sed ac quam in magna ullamcorper finibus vitae sed lorem. Integer nulla ligula, vulputate at lorem non, pulvinar ultricies est. Curabitur efficitur tristique commodo. Donec eu ligula finibus ante aliquam bibendum. Ut gravida condimentum ipsum sit amet dignissim. Pellentesque et hendrerit dui. Donec nec mattis turpis. Curabitur viverra lacus molestie egestas pulvinar. Etiam sodales quam a scelerisque posuere. In eu lacus et arcu sagittis scelerisque sit amet in leo. Quisque quis justo sollicitudin, aliquam tellus sed, efficitur felis.
-            </span>
-            <h4 class="pl-desc-title">
-                <span class="pl-desc-num-3">3</span> | MEAN Blog
-            </h4>
-            <div class="pl-desc-techs">
-                MongoDB (Mongoose), Express, Angular 1.4.x, PassportJS User Authentication, Handlebars Templating
+
+            <div  ng-class="$ctrl.changeActiveDesc(3)" class="pl-desc-container">
+                <h4 class="pl-desc-title">
+                    3 | MEAN Blog
+                </h4>
+                <div class="pl-desc-techs">
+                    MongoDB (Mongoose), Express, Angular 1.4.x, PassportJS User Authentication, Handlebars Templating
+                </div>
+                <span>
+                Duis aliquam ac est sed porta. Vivamus aliquet urna elit. Phasellus scelerisque, tellus ac auctor placerat, sapien diam ullamcorper enim, ut pellentesque ligula sapien posuere nisl. In ac rhoncus est. Cras scelerisque augue nec suscipit molestie. In hac habitasse platea dictumst. Aliquam eu lacinia sem, a lobortis odio. Etiam posuere finibus commodo. Mauris vitae suscipit lectus. Phasellus euismod quam eleifend lorem egestas semper. Aliquam augue dui, pellentesque quis sollicitudin sit amet, condimentum et ipsum.
+                </span>
             </div>
-            <span>
-            Duis aliquam ac est sed porta. Vivamus aliquet urna elit. Phasellus scelerisque, tellus ac auctor placerat, sapien diam ullamcorper enim, ut pellentesque ligula sapien posuere nisl. In ac rhoncus est. Cras scelerisque augue nec suscipit molestie. In hac habitasse platea dictumst. Aliquam eu lacinia sem, a lobortis odio. Etiam posuere finibus commodo. Mauris vitae suscipit lectus. Phasellus euismod quam eleifend lorem egestas semper. Aliquam augue dui, pellentesque quis sollicitudin sit amet, condimentum et ipsum.
-            </span>
-            <h4 class="pl-desc-title">
-                <span class="pl-desc-num-4">4</span> | Personal Portfolio
-            </h4>
-            <div class="pl-desc-techs">
-                MongoDB (Mongoose), Express, Angular 1.5.x, PassportJS Authentication
+
+            <div ng-class="$ctrl.changeActiveDesc(4)" class="pl-desc-container">
+                <h4 class="pl-desc-title">
+                    4 | Personal Portfolio
+                </h4>
+                <div class="pl-desc-techs">
+                    MongoDB (Mongoose), Express, Angular 1.5.x, PassportJS Authentication
+                </div>
+                <span>
+                    Building off of my previous experience with VolunteerApp and MEAN Blog, I was able to quickly build out the Express backend,
+                    get a mongoDB database setup and install necessary tooling. I used MongooseJS to create and interface with collections for
+                    Images, Users, Posts(blog) and Projects. Angular 1.5 was used to create the SPA front end with a focus on using components
+                    for organization and reuse.
+                </span>
             </div>
-            <span>
-                Building off of my previous experience with VolunteerApp and MEAN Blog, I was able to quickly build out the Express backend,
-                get a mongoDB database setup and install necessary tooling. I used MongooseJS to create and interface with collections for
-                Images, Users, Posts(blog) and Projects. Angular 1.5 was used to create the SPA front end with a focus on using components
-                for organization and reuse.
-            </span>
+
         </div>
     </div>
 </div>

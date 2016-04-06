@@ -22,6 +22,10 @@ a {
     height: 65px;
 }
 
+.main-title h2 {
+    display: inline-block;
+}
+
 .main-glyph-container {
     display: flex;
     align-items: flex-end;
@@ -66,7 +70,7 @@ a {
 
 .pl-image-container {
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
-    height: 90vh;
+    height: 80vh;
     margin-bottom: 15px;
     position: relative;
     display: flex;
@@ -84,6 +88,7 @@ a {
     top: 0;
     left: 0;
     right: 0;
+    visibility: hidden;
 }
 
 
@@ -131,7 +136,7 @@ a {
     top: 1vh;
 }
 
-.pl-desc-container {
+.pl-desc-wrapper {
     line-height: 20px;
 
     -webkit-column-count: 4;
@@ -142,6 +147,14 @@ a {
     column-gap: 15px;
 
     margin-top: 2vh;
+}
+
+.pl-desc-container {
+    padding: 5px;
+}
+
+.active-project-title {
+    background-color: whitesmoke;
 }
 
 .pl-desc-title {
@@ -160,9 +173,6 @@ a {
     .pl-image-container {
         height: 50vh;
         margin-bottom: 0;
-    }
-    .pl-image-container-1 {
-
     }
     .pl-image-container-2 {
         height: 28vh;
