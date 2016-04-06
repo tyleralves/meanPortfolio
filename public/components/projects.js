@@ -40,6 +40,12 @@ angular.module('projects-module', [])
                     });
                 });
 
+                $document.on('scroll', function(event){
+                    scope.$apply(function(){
+                        $window.alert('scrolled');
+                    });
+                });
+
                 angular.element($window).on('resize', function(){
                     scope.$apply(function() {
                         scope.isMediumDevice = $window.innerWidth > 992;
