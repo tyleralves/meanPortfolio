@@ -1,4 +1,7 @@
 MEAN Portfolio: Social network for work portfolios
+
+TODO: Fix url bar height glitch on mobile devices
+
 Databases:
 1. Users
 2. Projects (static instead?)

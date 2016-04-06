@@ -20,7 +20,35 @@ angular.module('projects-module', [])
         bindings: {
             activeProject: '<'
         }
-    });
+    })
+    .directive('projectListCurrent',['$window','$document','$timeout', function($window, $document, $timeout){
+        return {
+            restrict: 'A',
+            scope: {
+                currentProject: '=',
+                isMediumDevice: '='
+            },
+            link: function(scope, element, attr){
+
+                $document.on('keydown', function(event){
+                    scope.$apply(function(){
+                        $window.alert(JSON.stringify(event.which));
+                        if(event.which === 40){
+                            scope.currentProject < 4?scope.currentProject++:scope.currentProject = 1;
+                        }else if(event.which === 38){
+                            scope.currentProject > 1?scope.currentProject--:scope.currentProject = 4;
+                        }
+                    });
+                });
+
+                angular.element($window).on('resize', function(){
+                    scope.$apply(function() {
+                        scope.isMediumDevice = $window.innerWidth > 992;
+                    });
+                });
+            }
+        };
+    }]);
 
 function ProjectCtrl() {
     var ctrl = this;
@@ -44,6 +72,12 @@ function ProjectCtrl() {
     }
 }
 
-function ProjectListCtrl() {
+function ProjectListCtrl($window) {
     var ctrl = this;
+    ctrl.currentProject = 1;
+    ctrl.isMediumDevice = $window.innerWidth>992;
+
+    ctrl.isCurrentProject = function(projectIndex){
+        return ctrl.isMediumDevice || projectIndex===ctrl.currentProject;
+    };
 }
