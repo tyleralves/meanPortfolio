@@ -85,23 +85,21 @@ a {
 }
 
 .pl-image-scroll {
-    height: 90vh;
+    height: 160vh;
     width: 95vw;
 }
 
 .pl-image-caption {
-    background: rgba(0,0,0,.7);
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    visibility: hidden;
+    height: 100%;
+    width: 100%;
 }
 
+.pl-image-caption h4 {
+
+}
 
 .pl-image-container:hover .pl-image-caption {
     visibility: visible;
@@ -200,7 +198,12 @@ a {
         height: 28vh;
         margin-bottom: 4vh;
     }
-    .pl-image-container-3{
+    .pl-image-container-3 {
         height: 18vh;
     }
+    .pl-image-caption {
+        background: rgba(0,0,0,.7);
+        visibility: hidden;
+    }
+
 }

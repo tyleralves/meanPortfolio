@@ -31,11 +31,12 @@ angular.module('projects-module', [])
             link: function(scope, element, attr){
                 angular.element(document).ready(function(){
                     var currentProjectNode = document.querySelectorAll('.pl-image-inner-container')[scope.currentProject-1];
-
+                    var scrollOffset = currentProjectNode.scrollHeight-currentProjectNode.offsetHeight;
 
                     var projectAutoScroll = function(){
                         //var scrollbarWidth = myElement.offsetWidth-myElement.clientWidth;
-                        currentProjectNode.scrollTop = window.innerHeight*.05;
+                        //alert(currentProjectNode.clientHeight + ' ' + currentProjectNode.scrollHeight);
+                        currentProjectNode.scrollTop = (scrollOffset)*.5;
                         angular.element(currentProjectNode).on('scroll', projectScrollHandler);
                     };
 
@@ -55,9 +56,9 @@ angular.module('projects-module', [])
                     var scrolling = false,
                         scrollThrottleTimeout;
                     var projectScrollHandler = function(event){
-                        if(!scrolling && currentProjectNode.scrollTop > window.innerHeight*.099 || currentProjectNode.scrollTop < window.innerHeight*.001){
+                        if(!scrolling && currentProjectNode.scrollTop > scrollOffset *.95 || currentProjectNode.scrollTop < scrollOffset * .05){
                             scrolling = true;
-                            currentProjectChanger(currentProjectNode.scrollTop > window.innerHeight*.099);
+                            currentProjectChanger(currentProjectNode.scrollTop > scrollOffset *.95);
 
                             scrollThrottleTimeout = $timeout(function(){
                                 scrolling = false;
@@ -66,7 +67,8 @@ angular.module('projects-module', [])
                     };
 
                     projectAutoScroll();
-/*
+
+//
                     angular.element(document).on('keydown', function(event){
                         if(event.which === 40){
                             currentProjectChanger(true);
@@ -74,7 +76,7 @@ angular.module('projects-module', [])
                             currentProjectChanger(false);
                         }
                     });
-*/
+//
                     angular.element($window).on('resize', function(){
                         if($window.innerWidth < 992){
                             projectAutoScroll();
