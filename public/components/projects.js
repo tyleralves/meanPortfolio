@@ -53,22 +53,26 @@ angular.module('projects-module', [])
                         projectAutoScroll();
                     };
 
-                    var scrolling = false,
-                        scrollThrottleTimeout;
-                    var projectScrollHandler = function(event){
-                        if(!scrolling && currentProjectNode.scrollTop > scrollOffset *.95 || currentProjectNode.scrollTop < scrollOffset * .05){
-                            scrolling = true;
-                            currentProjectChanger(currentProjectNode.scrollTop > scrollOffset *.95);
+                    var scrolling = false;
 
-                            scrollThrottleTimeout = $timeout(function(){
+                    var projectScrollHandler = function(event){
+                        if(!scrolling) {
+                            scrolling = true;
+                            var scrollLogicTimeout = $timeout(function(){
+                                if (currentProjectNode.scrollTop > scrollOffset * .95 || currentProjectNode.scrollTop < scrollOffset * .05) {
+                                    alert(scrolling);
+                                    currentProjectChanger(currentProjectNode.scrollTop > scrollOffset * .95);
+                                } else {
+                                    currentProjectNode.scrollTop = scrollOffset*.5;
+                                }
                                 scrolling = false;
-                            }, 1000);
+                            },500);
                         }
                     };
 
                     projectAutoScroll();
 
-//
+/*
                     angular.element(document).on('keydown', function(event){
                         if(event.which === 40){
                             currentProjectChanger(true);
@@ -76,7 +80,7 @@ angular.module('projects-module', [])
                             currentProjectChanger(false);
                         }
                     });
-//
+*/
                     angular.element($window).on('resize', function(){
                         if($window.innerWidth < 992){
                             projectAutoScroll();
