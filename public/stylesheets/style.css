@@ -65,17 +65,28 @@ a {
 .pl-image-col {
     padding-left: 1vw;
     padding-right: 1vw;
-
 }
 
-.pl-image-container {
+.pl-image-outer-container {
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
     height: 80vh;
-    margin-bottom: 15px;
+    overflow: hidden;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 95vw;
+}
+
+.pl-image-inner-container {
+    height: 80vh;
+    margin-bottom: 15px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    left: 0;
+}
+
+.pl-image-scroll {
+    height: 90vh;
+    width: 95vw;
 }
 
 .pl-image-caption {
@@ -105,24 +116,24 @@ a {
     width: 30%;
 }
 
-.pl-image-container-1 {
+.pl-image-1 {
     background: url("/public/images/volunteerAppScreen.png") no-repeat;
     background-size: cover;
 }
 
-.pl-image-container-2 {
+.pl-image-2 {
     background: url("/public/images/sampleScreen1.png") no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
-.pl-image-container-3 {
+.pl-image-3 {
     background: url("/public/images/sampleScreen2.png") no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
-.pl-image-container-4 {
+.pl-image-4 {
     background: url("/public/images/portfolioScreen.png") no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 .pl-svg-image {
@@ -170,10 +181,21 @@ a {
 }
 
 @media screen and (min-width: 992px){
-    .pl-image-container {
+    .pl-image-outer-container {
         height: 50vh;
+        width: 100%;
         margin-bottom: 0;
     }
+
+    .pl-image-inner-container {
+        overflow-y: hidden;
+        width: 100%;
+    }
+
+    .pl-image-scroll {
+        width: 100%;
+    }
+
     .pl-image-container-2 {
         height: 28vh;
         margin-bottom: 4vh;

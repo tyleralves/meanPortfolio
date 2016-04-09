@@ -21,7 +21,7 @@ angular.module('projects-module', [])
             activeProject: '<'
         }
     })
-    .directive('projectListCurrent',['$window','$document','$timeout', function($window, $document, $timeout){
+    .directive('projectListCurrent',['$window','$document','$timeout', '$location', '$anchorScroll', function($window, $document, $timeout, $location, $anchorScroll){
         return {
             restrict: 'A',
             scope: {
@@ -29,26 +29,62 @@ angular.module('projects-module', [])
                 isMediumDevice: '='
             },
             link: function(scope, element, attr){
+                angular.element(document).ready(function(){
+                    var currentProjectNode = document.querySelectorAll('.pl-image-inner-container')[scope.currentProject-1];
 
-                $document.on('keydown', function(event){
-                    scope.$apply(function(){
+
+                    var projectAutoScroll = function(){
+                        //var scrollbarWidth = myElement.offsetWidth-myElement.clientWidth;
+                        currentProjectNode.scrollTop = window.innerHeight*.05;
+                        angular.element(currentProjectNode).on('scroll', projectScrollHandler);
+                    };
+
+                    var currentProjectChanger = function(isIncrement){
+                        angular.element(currentProjectNode).off();
+                        scope.$apply(function(){
+                            if(isIncrement){
+                                scope.currentProject < 4?scope.currentProject++:scope.currentProject = 1;
+                            }else{
+                                scope.currentProject > 1?scope.currentProject--:scope.currentProject = 4;
+                            }
+                        });
+                        currentProjectNode = document.querySelectorAll('.pl-image-inner-container')[scope.currentProject-1];
+                        projectAutoScroll();
+                    };
+
+                    var scrolling = false,
+                        scrollThrottleTimeout;
+                    var projectScrollHandler = function(event){
+                        if(!scrolling && currentProjectNode.scrollTop > window.innerHeight*.099 || currentProjectNode.scrollTop < window.innerHeight*.001){
+                            scrolling = true;
+                            currentProjectChanger(currentProjectNode.scrollTop > window.innerHeight*.099);
+
+                            scrollThrottleTimeout = $timeout(function(){
+                                scrolling = false;
+                            }, 1000);
+                        }
+                    };
+
+                    projectAutoScroll();
+/*
+                    angular.element(document).on('keydown', function(event){
                         if(event.which === 40){
-                            scope.currentProject < 4?scope.currentProject++:scope.currentProject = 1;
+                            currentProjectChanger(true);
                         }else if(event.which === 38){
-                            scope.currentProject > 1?scope.currentProject--:scope.currentProject = 4;
+                            currentProjectChanger(false);
                         }
                     });
-                });
-
-                $document.on('scroll', function(event){
-                    scope.$apply(function(){
-                        $window.alert('scrolled');
-                    });
-                });
-
-                angular.element($window).on('resize', function(){
-                    scope.$apply(function() {
-                        scope.isMediumDevice = $window.innerWidth > 992;
+*/
+                    angular.element($window).on('resize', function(){
+                        if($window.innerWidth < 992){
+                            projectAutoScroll();
+                        }else{
+                            currentProjectNode.scrollTop = 0;
+                            angular.element(currentProjectNode).off();
+                        }
+                        scope.$apply(function() {
+                            scope.isMediumDevice = $window.innerWidth > 992;
+                        });
                     });
                 });
             }
