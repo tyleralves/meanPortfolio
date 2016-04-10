@@ -93,7 +93,7 @@ a {
     height: 80vh;
     overflow: hidden;
     position: relative;
-    width: 95vw;
+    width: 92vw;
 }
 
 .pl-image-inner-container {
@@ -101,13 +101,13 @@ a {
     margin-bottom: 15px;
     overflow-x: hidden;
     overflow-y: scroll;
-    position: absolute;
+    position: relative;
     left: 0;
 }
 
 .pl-image-scroll {
     height: 160vh;
-    width: 95vw;
+    width: 92vw;
 }
 
 .pl-image-caption {

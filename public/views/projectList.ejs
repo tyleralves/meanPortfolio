@@ -1,9 +1,9 @@
 <div project-list-current current-project="$ctrl.currentProject" is-medium-device="$ctrl.isMediumDevice" class="row pl-image-row">
     <ol class="carousel-indicators">
-        <li ng-click="$ctrl.changeCurrentProject(1)" class="active"></li>
-        <li ng-click="$ctrl.changeCurrentProject(2)"></li>
-        <li ng-click="$ctrl.changeCurrentProject(3)"></li>
-        <li ng-click="$ctrl.changeCurrentProject(4)"></li>
+        <li ng-click="$ctrl.changeCurrentProject(1)" ng-class="$ctrl.indicatorIsActive(1)"></li>
+        <li ng-click="$ctrl.changeCurrentProject(2)" ng-class="$ctrl.indicatorIsActive(2)"></li>
+        <li ng-click="$ctrl.changeCurrentProject(3)" ng-class="$ctrl.indicatorIsActive(3)"></li>
+        <li ng-click="$ctrl.changeCurrentProject(4)" ng-class="$ctrl.indicatorIsActive(4)"></li>
     </ol>
 
     <div class="col-md-5 pl-image-col">

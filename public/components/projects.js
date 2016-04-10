@@ -30,23 +30,25 @@ angular.module('projects-module', [])
             },
             link: function(scope, element, attr){
                 angular.element(document).ready(function(){
-                    var currentProjectNode = document.querySelectorAll('.pl-image-inner-container')[scope.currentProject-1];
+                    var projectNodes = document.querySelectorAll('.pl-image-inner-container');
+                    var currentProjectNode = projectNodes[scope.currentProject-1];
                     var scrollOffset = currentProjectNode.scrollHeight-currentProjectNode.offsetHeight;
 
                     scope.$watch('currentProject',
                         function(newValue, oldValue){
-                            projectAutoScroll();
-                    });
+                            angular.element(currentProjectNode).off();
+                            currentProjectNode = projectNodes[scope.currentProject-1];
+                            $timeout(projectAutoScroll,10);
+                            angular.element(currentProjectNode).on('scroll', projectScrollHandler);
+                        }
+                    );
 
                     var projectAutoScroll = function(){
                         //var scrollbarWidth = myElement.offsetWidth-myElement.clientWidth;
-                        //alert(currentProjectNode.clientHeight + ' ' + currentProjectNode.scrollHeight);
                         currentProjectNode.scrollTop = (scrollOffset)*.5;
-                        angular.element(currentProjectNode).on('scroll', projectScrollHandler);
                     };
 
                     var currentProjectChanger = function(projectNumber){
-                        angular.element(currentProjectNode).off();
                         scope.$apply(function(){
                             if(projectNumber>scope.currentProject){
                                 scope.currentProject < 4?scope.currentProject++:scope.currentProject = 1;
@@ -54,11 +56,9 @@ angular.module('projects-module', [])
                                 scope.currentProject > 1?scope.currentProject--:scope.currentProject = 4;
                             }
                         });
-                        currentProjectNode = document.querySelectorAll('.pl-image-inner-container')[scope.currentProject-1];
                     };
 
                     var scrolling = false;
-
                     var projectScrollHandler = function(event){
                         if(!scrolling) {
                             scrolling = true;
@@ -73,7 +73,6 @@ angular.module('projects-module', [])
                         }
                     };
 
-                    projectAutoScroll();
 
 
                     angular.element(document).on('keydown', function(event){
@@ -152,6 +151,7 @@ function ProjectListCtrl($window) {
         return ctrl.isMediumDevice || projectIndex===ctrl.currentProject;
     };
 
+    //Allows indicators to change project
     ctrl.changeCurrentProject = function(projectNum) {
         ctrl.currentProject = projectNum;
     };
@@ -159,8 +159,14 @@ function ProjectListCtrl($window) {
     //Project image hover highlights project description
     ctrl.activeHighlightProject = 0;
 
+    //Highlights description section based on project hover
     ctrl.changeActiveDesc = function(descNum){
         return ctrl.activeHighlightProject === descNum?'active-project-title':'';
+    };
+
+    //
+    ctrl.indicatorIsActive = function(indicatorNum){
+        return ctrl.currentProject === indicatorNum ? 'active':'';
     };
 
 }
