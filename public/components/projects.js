@@ -21,7 +21,7 @@ angular.module('projects-module', [])
             activeProject: '<'
         }
     })
-    .directive('projectListCurrent',['$window','$document','$timeout', '$location', '$anchorScroll', function($window, $document, $timeout, $location, $anchorScroll){
+    .directive('projectListCurrent',['$window','$document','$timeout', function($window, $document, $timeout){
         return {
             restrict: 'A',
             scope: {
@@ -33,6 +33,11 @@ angular.module('projects-module', [])
                     var currentProjectNode = document.querySelectorAll('.pl-image-inner-container')[scope.currentProject-1];
                     var scrollOffset = currentProjectNode.scrollHeight-currentProjectNode.offsetHeight;
 
+                    scope.$watch('currentProject',
+                        function(newValue, oldValue){
+                            projectAutoScroll();
+                    });
+
                     var projectAutoScroll = function(){
                         //var scrollbarWidth = myElement.offsetWidth-myElement.clientWidth;
                         //alert(currentProjectNode.clientHeight + ' ' + currentProjectNode.scrollHeight);
@@ -40,17 +45,16 @@ angular.module('projects-module', [])
                         angular.element(currentProjectNode).on('scroll', projectScrollHandler);
                     };
 
-                    var currentProjectChanger = function(isIncrement){
+                    var currentProjectChanger = function(projectNumber){
                         angular.element(currentProjectNode).off();
                         scope.$apply(function(){
-                            if(isIncrement){
+                            if(projectNumber>scope.currentProject){
                                 scope.currentProject < 4?scope.currentProject++:scope.currentProject = 1;
-                            }else{
+                            }else if(projectNumber<scope.currentProject) {
                                 scope.currentProject > 1?scope.currentProject--:scope.currentProject = 4;
                             }
                         });
                         currentProjectNode = document.querySelectorAll('.pl-image-inner-container')[scope.currentProject-1];
-                        projectAutoScroll();
                     };
 
                     var scrolling = false;
@@ -60,27 +64,26 @@ angular.module('projects-module', [])
                             scrolling = true;
                             var scrollLogicTimeout = $timeout(function(){
                                 if (currentProjectNode.scrollTop > scrollOffset * .95 || currentProjectNode.scrollTop < scrollOffset * .05) {
-                                    alert(scrolling);
-                                    currentProjectChanger(currentProjectNode.scrollTop > scrollOffset * .95);
+                                    currentProjectChanger(currentProjectNode.scrollTop > scrollOffset * .95?scope.currentProject+1:scope.currentProject-1);
                                 } else {
                                     currentProjectNode.scrollTop = scrollOffset*.5;
                                 }
                                 scrolling = false;
-                            },500);
+                            },300);
                         }
                     };
 
                     projectAutoScroll();
 
-/*
+
                     angular.element(document).on('keydown', function(event){
                         if(event.which === 40){
-                            currentProjectChanger(true);
+                            currentProjectChanger(scope.currentProject+1);
                         }else if(event.which === 38){
-                            currentProjectChanger(false);
+                            currentProjectChanger(scope.currentProject-1);
                         }
                     });
-*/
+
                     angular.element($window).on('resize', function(){
                         if($window.innerWidth < 992){
                             projectAutoScroll();
@@ -147,6 +150,10 @@ function ProjectListCtrl($window) {
     ctrl.isMediumDevice = $window.innerWidth>992;
     ctrl.isCurrentProject = function(projectIndex){
         return ctrl.isMediumDevice || projectIndex===ctrl.currentProject;
+    };
+
+    ctrl.changeCurrentProject = function(projectNum) {
+        ctrl.currentProject = projectNum;
     };
 
     //Project image hover highlights project description
