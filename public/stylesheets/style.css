@@ -16,32 +16,40 @@ a {
 /* ## Main ## */
 
 .main-title {
-    height: 65px;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
 }
 
 .main-title h2 {
     display: inline-block;
 }
 
-.main-glyph-container {
-    display: flex;
-    align-items: flex-end;
-    float: right;
-    height: 65px;
-}
-
-@media screen and (min-width: 992px){
-    .main-title {
-        height: 8vh;
-    }
-    .main-glyph-container {
-        height: 8vh;
-    }
-}
-
 .glyphicon-menu-hamburger {
     font-size: 28px;
-    padding-bottom: 15px;
+    margin-left: auto;
+    background-color: blue;
+}
+
+@media screen and (max-height: 600px) {
+    .glyphicon-menu-hamburger {
+        position: absolute;
+        right: 15px;
+        top: 5vh;
+    }
+
+    .main-title {
+        height: 0;
+    }
+
+    .main-title h2{
+        display: none;
+    }
+
+    .pl-image-outer-container {
+        margin-top: 5vh;
+    }
 }
 
 /* ## Navigation ## */
@@ -63,12 +71,13 @@ a {
     display: flex;
     align-items: center;
     position: absolute;
-    left: 96vw;
+    left: 93vw;
     height: 100%;
+    width: 7vw;
 }
 
 .carousel-indicators {
-    margin: 0 auto;
+    margin: auto;
     position: static;
 }
 
@@ -92,7 +101,7 @@ a {
 
 .pl-image-outer-container {
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
-    height: 80vh;
+    height: 90vh;
     overflow: hidden;
     position: relative;
     width: 92vw;
@@ -103,13 +112,13 @@ a {
     margin-bottom: 15px;
     overflow-x: hidden;
     overflow-y: scroll;
-    position: relative;
+    position: absolute;
     left: 0;
 }
 
 .pl-image-scroll {
     height: 160vh;
-    width: 92vw;
+    width: 93vw;
 }
 
 .pl-image-caption {
@@ -200,17 +209,14 @@ a {
     margin-bottom: 5px;
 }
 
-@media screen and (max-height: 300px){
-    .main-title {
-        display: none;
-    }
+/*@media screen and (max-height: 600px){
     .pl-image-outer-container {
         top: 10vh;
     }
     .pl-indicators-container {
         top: 10vh;
     }
-}
+}*/
 
 @media screen and (min-width: 992px){
     .pl-image-outer-container {

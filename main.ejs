@@ -15,13 +15,16 @@
     </head>
     <body ng-app="meanPortfolio">
         <div class="container-fluid">
-            <div class="main-title">
-               <h2>Tyler Alves</h2>
-               <div class="main-glyph-container">
-                   <span class="glyphicon glyphicon-menu-hamburger" ng-click="$ctrl.navShow = !$ctrl.navShow"></span>
-               </div>
-           </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-title">
+                        <h2>Tyler Alves</h2>
+                        <div class="glyphicon glyphicon-menu-hamburger" ng-click="$ctrl.navShow = !$ctrl.navShow"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <nav-bar ng-show="$ctrl.navShow" on-select="$ctrl.navShow = !$ctrl.navShow"></nav-bar>
         <main ng-hide="$ctrl.navShow"></main>
 
