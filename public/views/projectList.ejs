@@ -1,10 +1,14 @@
 <div project-list-current current-project="$ctrl.currentProject" is-medium-device="$ctrl.isMediumDevice" class="row pl-image-row">
-    <ol class="carousel-indicators">
-        <li ng-click="$ctrl.changeCurrentProject(1)" ng-class="$ctrl.indicatorIsActive(1)"></li>
-        <li ng-click="$ctrl.changeCurrentProject(2)" ng-class="$ctrl.indicatorIsActive(2)"></li>
-        <li ng-click="$ctrl.changeCurrentProject(3)" ng-class="$ctrl.indicatorIsActive(3)"></li>
-        <li ng-click="$ctrl.changeCurrentProject(4)" ng-class="$ctrl.indicatorIsActive(4)"></li>
-    </ol>
+    <div class="visible-xs-block visible-sm-block">
+        <div class="pl-indicators-container">
+            <ol class="carousel-indicators">
+                <li ng-click="$ctrl.changeCurrentProject(1)" ng-class="$ctrl.indicatorIsActive(1)"></li>
+                <li ng-click="$ctrl.changeCurrentProject(2)" ng-class="$ctrl.indicatorIsActive(2)"></li>
+                <li ng-click="$ctrl.changeCurrentProject(3)" ng-class="$ctrl.indicatorIsActive(3)"></li>
+                <li ng-click="$ctrl.changeCurrentProject(4)" ng-class="$ctrl.indicatorIsActive(4)"></li>
+            </ol>
+        </div>
+    </div>
 
     <div class="col-md-5 pl-image-col">
         <div project-image-highlight project-num="1" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(1)" class="pl-image-outer-container">

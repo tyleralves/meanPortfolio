@@ -8,9 +8,6 @@ h1,h2,h3,h4,h5,h6 {
     font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-div {
-    transition: height .5s;
-}
 
 a {
     color: #00B7FF;
@@ -62,26 +59,31 @@ a {
 
 /* ## Project List ## */
 
+.pl-indicators-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 96vw;
+    height: 100%;
+}
+
 .carousel-indicators {
-    bottom: 50%;
-    left: 97%;
-    margin-left: 0;
-    width: auto;
+    margin: 0 auto;
+    position: static;
 }
 
 .carousel-indicators li {
-    display: block;
     background-color: lightgray;
     border: 1px solid black;
     border-radius: 0;
-    margin: 5px auto;
+    display: block;
+    margin: 20px auto;
 }
 
 .carousel-indicators li.active {
     background-color: black;
+    margin: 20px auto;
 }
-
-
 
 .pl-image-col {
     padding-left: 1vw;
@@ -196,6 +198,18 @@ a {
     font-style: italic;
     line-height: 20px;
     margin-bottom: 5px;
+}
+
+@media screen and (max-height: 300px){
+    .main-title {
+        display: none;
+    }
+    .pl-image-outer-container {
+        top: 10vh;
+    }
+    .pl-indicators-container {
+        top: 10vh;
+    }
 }
 
 @media screen and (min-width: 992px){

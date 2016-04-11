@@ -45,6 +45,7 @@ angular.module('projects-module', [])
 
                     var projectAutoScroll = function(){
                         //var scrollbarWidth = myElement.offsetWidth-myElement.clientWidth;
+                        scrollOffset = currentProjectNode.scrollHeight-currentProjectNode.offsetHeight;
                         currentProjectNode.scrollTop = (scrollOffset)*.5;
                     };
 
@@ -85,9 +86,11 @@ angular.module('projects-module', [])
 
                     angular.element($window).on('resize', function(){
                         if($window.innerWidth < 992){
+                            angular.element(currentProjectNode).off();
                             projectAutoScroll();
+                            angular.element(currentProjectNode).on('scroll', projectScrollHandler);
                         }else{
-                            currentProjectNode.scrollTop = 0;
+                            projectAutoScroll();
                             angular.element(currentProjectNode).off();
                         }
                         scope.$apply(function() {
