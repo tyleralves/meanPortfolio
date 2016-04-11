@@ -24,6 +24,7 @@ a {
 
 .main-title h2 {
     display: inline-block;
+    font-size: 5vh;
 }
 
 .glyphicon-menu-hamburger {
@@ -32,9 +33,10 @@ a {
     background-color: blue;
 }
 
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 300px) {
     .glyphicon-menu-hamburger {
         position: absolute;
+        margin-left: 0;
         right: 15px;
         top: 5vh;
     }
