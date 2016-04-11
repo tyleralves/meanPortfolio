@@ -27,33 +27,36 @@ a {
     font-size: 5vh;
 }
 
+.main-menu-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+}
+
 .glyphicon-menu-hamburger {
-    font-size: 28px;
-    margin-left: auto;
+    position: relative;
+    font-size: 5vw;
 }
 
 @media screen and (max-height: 300px) {
+    .main-menu-col {
+        top: 5vh;
+    }
+
     .glyphicon-menu-hamburger {
         position: relative;
         top: 5vh;
-        margin-left: auto;
-        margin-right: 5px;
         z-index: 2;
     }
 
     .main-title {
-        height: 100px;
         position: absolute;
-        right: 2vh;
         align-items: flex-start;
     }
 
     .main-title h2{
         display: none;
-    }
-
-    .pl-image-outer-container {
-        margin-top: 5vh;
     }
 }
 
@@ -75,15 +78,17 @@ a {
 .pl-indicators-container {
     display: flex;
     align-items: center;
-    position: absolute;
-    left: 93vw;
-    height: 100%;
-    width: 7vw;
+    justify-content: center;
+    height: 90vh;
 }
 
 .carousel-indicators {
-    margin: auto;
     position: static;
+    width: 100%;
+    padding-left: auto;
+    margin-left: auto;
+    text-align: center;
+    list-style: none;
 }
 
 .carousel-indicators li {
@@ -109,7 +114,6 @@ a {
     height: 90vh;
     overflow: hidden;
     position: relative;
-    width: 92vw;
 }
 
 .pl-image-inner-container {
@@ -224,6 +228,11 @@ a {
 }*/
 
 @media screen and (min-width: 992px){
+
+    .glyphicon-menu-hamburger{
+        font-size: 28px;
+    }
+
     .pl-image-outer-container {
         height: 50vh;
         width: 100%;
