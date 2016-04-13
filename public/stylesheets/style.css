@@ -7,7 +7,6 @@ body {
 h1,h2,h3,h4,h5,h6 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
-    font-size: 67px;
 }
 
 a {
@@ -17,7 +16,7 @@ a {
 /* ## Main ## */
 
 .main-title {
-    height: 35px;
+    height: 40px;
     width: 100%;
     margin-top: 5px;
 }
@@ -57,7 +56,7 @@ a {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    height: 35px;
+    height: 40px;
 }
 
 .glyphicon-menu-hamburger {
@@ -145,8 +144,9 @@ a {
     position: relative;
 }
 
+/* Hides scrollbar*/
 .pl-image-inner-container {
-    height: 90vh;
+    height: 100%;
     margin-bottom: 15px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -164,16 +164,32 @@ a {
     align-items: center;
     justify-content: center;
     height: 100%;
+    position: relative;
     width: 100%;
+    /*background-color: rgba(0,0,0,.7);*/
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.9) 80%);
 }
 
-.pl-image-caption h4 {
+@media screen and (max-width: 992px){
+    .pl-image-caption {
+        right: 100%;
+    }
 
+    .pl-image-caption-swiped-add,
+    .pl-image-caption-swiped-remove {
+        transition: .1s linear all;
+    }
+
+    .pl-image-caption-swiped,
+    .pl-image-caption-swiped-add.pl-image-caption-swiped-add-active {
+        right: 0;
+    }
+
+    .pl-image-caption-swiped-remove.pl-image-caption-swiped-remove-active {
+        right: 100%;
+    }
 }
 
-.pl-image-container:hover .pl-image-caption {
-    visibility: visible;
-}
 
 .pl-image-caption h4 {
     color: white;
@@ -208,10 +224,6 @@ a {
     position: absolute;
     bottom: 1vh;
     left: 1vh;
-}
-
-#pl-svg-image-2 {
-    top: 1vh;
 }
 
 .pl-desc-wrapper {
@@ -272,31 +284,54 @@ a {
         font-size: 28px;
     }
 
+    .pl-image-col {
+        padding-right: 15px;
+    }
+
     .pl-image-outer-container {
-        height: 50vh;
+        border: 1px solid grey;
+        box-shadow: none;
         width: 100%;
         margin-bottom: 0;
     }
+
+    .pl-image-caption {
+        visibility: hidden;
+    }
+
+    .pl-image-outer-container:hover .pl-image-caption {
+        visibility: visible;
+    }
+
+    .pl-image-outer-container:hover {
+        box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
+    }
+
+    .pl-image-outer-container:hover .pl-svg-image circle {
+        fill: white;
+    }
+
+    .pl-image-outer-container:hover .pl-svg-image text {
+        fill: black;
+    }
+
 
     .pl-image-inner-container {
         overflow-y: hidden;
         width: 100%;
     }
 
-    .pl-image-scroll {
-        width: 100%;
-    }
-
     .pl-image-container-2 {
-        height: 28vh;
+        height: 50vh;
         margin-bottom: 4vh;
     }
+
     .pl-image-container-3 {
-        height: 18vh;
-    }
-    .pl-image-caption {
-        background: rgba(0,0,0,.7);
-        visibility: hidden;
+        height: 36vh;
     }
 
+    .pl-image-scroll {
+        height: 100%;
+        width: 100%;
+    }
 }

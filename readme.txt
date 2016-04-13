@@ -36,6 +36,4 @@ mongod --dbpath C:\Users\Tyler\WebstormProjects\meanPortfolio\data
 
 
 NOW:
-PROJECT LIST LAYOUT MASONRY
-1. Desktop
-2. Mobile
+Side slide panel on mobile layout

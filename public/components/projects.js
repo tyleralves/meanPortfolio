@@ -1,7 +1,7 @@
 /**
  * Created by Tyler on 3/24/2016.
  */
-angular.module('projects-module', [])
+angular.module('projects-module', ['ngTouch','ngAnimate'])
     .component('projectsComponent', {
         templateUrl: 'public/views/projects.ejs',
         controller: ProjectCtrl
@@ -158,6 +158,9 @@ function ProjectListCtrl($window) {
     ctrl.changeCurrentProject = function(projectNum) {
         ctrl.currentProject = projectNum;
     };
+
+    //Class for slideout panel in mobile layout
+    ctrl.slideOutClass = false;
 
     //Project image hover highlights project description
     ctrl.activeHighlightProject = 0;
