@@ -17,7 +17,7 @@ a {
 /* ## Main ## */
 
 .main-title {
-    height: 8vh;
+    height: 35px;
     width: 100%;
     margin-top: 5px;
 }
@@ -39,7 +39,7 @@ a {
     font-size: 17px;
     font-weight: 600;
     letter-spacing: -1px;
-    line-height: 1;
+    line-height: 1em;
     margin-bottom: 0;
 }
 
@@ -47,7 +47,7 @@ a {
     display: block;
     font-size: 10px;
     font-weight: 600;
-    line-height: 1;
+    line-height: 1em;
     margin-top: 0;
     padding-top: 0;
     text-transform: uppercase;
@@ -55,17 +55,17 @@ a {
 
 .main-menu-col {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    height: 8vh;
+    height: 35px;
 }
 
 .glyphicon-menu-hamburger {
     position: relative;
-    font-size: 5vw;
+    font-size: 25px;
 }
 
-@media screen and (max-height: 450px) {
+@media screen and (max-width: 992px) and (max-height: 450px) {
     .main-menu-col {
         align-items: flex-start;
         height: auto;
@@ -109,6 +109,7 @@ a {
 .pl-indicators-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 90vh;
 }
 
@@ -262,6 +263,10 @@ a {
 
 
 @media screen and (min-width: 992px){
+
+    .main-menu-col {
+        justify-content: flex-end;
+    }
 
     .glyphicon-menu-hamburger{
         font-size: 28px;
