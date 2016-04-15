@@ -74,7 +74,6 @@ a {
         align-items: flex-start;
         height: auto;
         position: absolute;
-        right: 0;
         top: 3vh;
     }
 
@@ -164,7 +163,7 @@ a {
     overflow-y: scroll;
     position: absolute;
     left: 0;
-    width: 104.5%;
+    width: 100%;
 }
 
 .pl-image-scroll {
@@ -181,6 +180,7 @@ a {
     height: 100%;
     padding: 5px;
     position: absolute;
+    right: 0;
     width: inherit;
 }
 
@@ -191,7 +191,15 @@ a {
 .pl-image-help-close {
     position: absolute;
     top:37vh;
-    right: 5%;
+    right: 5px;
+}
+
+.pl-image-help.ng-hide-add, .pl-image-help.ng-hide-remove {
+    transition: .2s linear all;
+}
+
+.pl-image-help.ng-hide{
+    right: 100%;
 }
 
 .pl-image-caption {

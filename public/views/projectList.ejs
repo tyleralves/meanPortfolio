@@ -35,7 +35,7 @@
                                         my immediate obstacles. Although it took hours to implement some of the hacky solutions, it felt so good to go back and refactor my code to
                                         make it more eloquent, performant and readable.
                                     </div>
-                                    <a href="http://stormy-eyrie-32571.herokuapp.com">
+                                    <a href="http://stormy-eyrie-32571.herokuapp.com" target="_blank">
                                         <div class="btn pl-desc-btn">View Site</div>
                                     </a>
                                     <div class="pl-desc-labels">
@@ -56,6 +56,10 @@
                 <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="2" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(2)" class="pl-image-outer-container pl-image-container-2">
                     <div class="pl-image-inner-container pl-image-2">
                         <div class="pl-image-scroll">
+                            <div class="pl-image-help" ng-show="$ctrl.showHelp">
+                                <div class="glyphicon glyphicon-remove-circle pl-image-help-close" ng-click="$ctrl.showHelp = !$ctrl.showHelp"></div>
+                                <img class="pl-image-help-icon" src="/public/images/swipe.png">
+                            </div>
                             <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''">
                                 <div class="pl-desc-container">
                                     <h4 class="pl-desc-title">
@@ -76,6 +80,10 @@
                 <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="3" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(3)" class="pl-image-outer-container pl-image-container-3">
                     <div class="pl-image-inner-container pl-image-3">
                         <div class="pl-image-scroll">
+                            <div class="pl-image-help" ng-show="$ctrl.showHelp">
+                                <div class="glyphicon glyphicon-remove-circle pl-image-help-close" ng-click="$ctrl.showHelp = !$ctrl.showHelp"></div>
+                                <img class="pl-image-help-icon" src="/public/images/swipe.png">
+                            </div>
                             <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''">
                                 <div class="pl-desc-container">
                                     <h4 class="pl-desc-title">
@@ -97,6 +105,10 @@
                 <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="4" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(4)" class="pl-image-outer-container">
                     <div class="pl-image-inner-container pl-image-4">
                         <div class="pl-image-scroll">
+                            <div class="pl-image-help" ng-show="$ctrl.showHelp">
+                                <div class="glyphicon glyphicon-remove-circle pl-image-help-close" ng-click="$ctrl.showHelp = !$ctrl.showHelp"></div>
+                                <img class="pl-image-help-icon" src="/public/images/swipe.png">
+                            </div>
                             <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''">
                                 <div class="pl-desc-container">
                                     <h4 class="pl-desc-title">
