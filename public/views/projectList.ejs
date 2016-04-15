@@ -1,15 +1,17 @@
 <div project-list-current current-project="$ctrl.currentProject" is-medium-device="$ctrl.isMediumDevice" class="row pl-image-row">
-    <div class="visible-xs-block visible-sm-block">
-        <div class="col-xs-1 pull-right pl-indicators-container">
+    <div class="col-xs-1 pull-right visible-xs-block visible-sm-block pl-indicators-col">
+        <div class="pl-indicators-container">
             <ol class="carousel-indicators">
                 <li ng-click="$ctrl.changeCurrentProject(1)" ng-class="$ctrl.indicatorIsActive(1)"></li>
                 <li ng-click="$ctrl.changeCurrentProject(2)" ng-class="$ctrl.indicatorIsActive(2)"></li>
                 <li ng-click="$ctrl.changeCurrentProject(3)" ng-class="$ctrl.indicatorIsActive(3)"></li>
                 <li ng-click="$ctrl.changeCurrentProject(4)" ng-class="$ctrl.indicatorIsActive(4)"></li>
             </ol>
+            <div class="glyphicon glyphicon-question-sign pl-help-btn" ng-click="$ctrl.showHelp = !$ctrl.showHelp"></div>
         </div>
 
     </div>
+
 
     <div class="col-xs-11 col-md-12">
         <div class="row">
@@ -17,77 +19,110 @@
                 <div ng-swipe-right="$ctrl.slideOutClass = true" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="1" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(1)" class="pl-image-outer-container">
                     <div class="pl-image-inner-container pl-image-1">
                         <div class="pl-image-scroll">
+                            <div class="pl-image-help" ng-show="$ctrl.showHelp">
+                                <div class="glyphicon glyphicon-remove-circle pl-image-help-close" ng-click="$ctrl.showHelp = !$ctrl.showHelp"></div>
+                                <img class="pl-image-help-icon" src="/public/images/swipe.png">
+                            </div>
                             <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''" >
-                                <h4>Volunteer App</h4>
+                                <div class="pl-desc-container">
+                                    <h4 class="pl-desc-title">
+                                        Volunteer App
+                                    </h4>
+                                    <div class="pl-desc-summary">
+                                        VolunteerApp was my optimistic leap into the deep end of NodeJS web development. I struggled for countless hours to get my infrastructure
+                                        and tooling setup, create a simple Mongo collection, develop backend Passport user authentication and access it all using Handlebars
+                                        on the front-end. During the indirect process of finding solutions to specific problems, I had to learn all about the technologies surrounding
+                                        my immediate obstacles. Although it took hours to implement some of the hacky solutions, it felt so good to go back and refactor my code to
+                                        make it more eloquent, performant and readable.
+                                    </div>
+                                    <a href="http://stormy-eyrie-32571.herokuapp.com">
+                                        <div class="btn pl-desc-btn">View Site</div>
+                                    </a>
+                                    <div class="pl-desc-labels">
+                                        <span class="label pl-desc-label">MongoDB</span>
+                                        <span class="label pl-desc-label">Mongoose</span>
+                                        <span class="label pl-desc-label">Express</span>
+                                        <span class="label pl-desc-label">Passport</span>
+                                        <span class="label pl-desc-label">Handlebars</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <svg class="pl-svg-image visible-md-block visible-lg-block" height="30" width="30">
-                        <g>
-                            <circle cx="15" cy="15" r="15" fill="black"></circle>
-                            <text x="11" y="20" fill="white">1</text>
-                        </g>
-                    </svg>
                 </div>
             </div>
 
             <div class="col-md-4 pl-image-col">
-                <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" project-image-highlight project-num="2" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(2)" class="pl-image-outer-container pl-image-container-2">
+                <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="2" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(2)" class="pl-image-outer-container pl-image-container-2">
                     <div class="pl-image-inner-container pl-image-2">
                         <div class="pl-image-scroll">
-                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'visible':'invisible'">
-                                <h4>Vanilla JS Quiz</h4>
+                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''">
+                                <div class="pl-desc-container">
+                                    <h4 class="pl-desc-title">
+                                        Vanilla JS Quiz
+                                    </h4>
+                                    <div class="pl-desc-techs">
+                                        MongoDB (Mongoose), Express, PassportJS User Authentication, Handlebars Templating
+                                    </div>
+                                    <div class="pl-desc-summary">
+                                    Integer nulla ligula, vulputate at lorem non, pulvinar ultricies est. Curabitur efficitur tristique commodo. Donec eu ligula finibus ante aliquam bibendum. Ut gravida condimentum ipsum sit amet dignissim. Pellentesque et hendrerit dui. Donec nec mattis turpis. Curabitur viverra lacus molestie egestas pulvinar. Etiam sodales quam a scelerisque posuere. In eu lacus et arcu sagittis scelerisque sit amet in leo. Quisque quis justo sollicitudin, aliquam tellus sed, efficitur felis.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <svg class="pl-svg-image visible-md-block visible-lg-block " id="pl-svg-image-2" height="30" width="30">
-                        <g>
-                            <circle cx="15" cy="15" r="15" fill="black"></circle>
-                            <text x="11" y="20" fill="white">2</text>
-                        </g>
-                    </svg>
                 </div>
 
-                <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" project-image-highlight project-num="3" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(3)" class="pl-image-outer-container pl-image-container-3">
+                <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="3" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(3)" class="pl-image-outer-container pl-image-container-3">
                     <div class="pl-image-inner-container pl-image-3">
                         <div class="pl-image-scroll">
-                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'visible':'invisible'">
-                                <h4>MEAN Blog</h4>
-                                <div class="btn btn-default">Visit Site</div>
+                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''">
+                                <div class="pl-desc-container">
+                                    <h4 class="pl-desc-title">
+                                        MEAN Blog
+                                    </h4>
+                                    <div class="pl-desc-techs">
+                                        MongoDB (Mongoose), Express, Angular 1.4.x, PassportJS User Authentication, Handlebars Templating
+                                    </div>
+                                    <div class="pl-desc-summary">
+                                    Duis aliquam ac est sed porta. Vivamus aliquet urna elit. Phasellus scelerisque, tellus ac auctor placerat, sapien diam ullamcorper enim, ut pellentesque ligula sapien posuere nisl. In ac rhoncus est. Cras scelerisque augue nec suscipit molestie. In hac habitasse platea dictumst. Aliquam eu lacinia sem, a lobortis odio. Etiam posuere finibus commodo. Mauris vitae suscipit lectus. Phasellus euismod quam eleifend lorem egestas semper. Aliquam augue dui, pellentesque quis sollicitudin sit amet, condimentum et ipsum.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <svg class="pl-svg-image visible-md-block visible-lg-block " height="30" width="30">
-                        <g>
-                            <circle cx="15" cy="15" r="15" fill="white"></circle>
-                            <text x="11" y="20" fill="black">3</text>
-                        </g>
-                    </svg>
                 </div>
             </div>
             <div class="col-md-3 pl-image-col">
-                <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" project-image-highlight project-num="4" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(4)" class="pl-image-outer-container">
+                <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="4" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(4)" class="pl-image-outer-container">
                     <div class="pl-image-inner-container pl-image-4">
                         <div class="pl-image-scroll">
-                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'visible':'invisible'">
-                                <h4>Personal Portfolio</h4>
+                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''">
+                                <div class="pl-desc-container">
+                                    <h4 class="pl-desc-title">
+                                        Personal Portfolio
+                                    </h4>
+                                    <div class="pl-desc-techs">
+                                        MongoDB (Mongoose), Express, Angular 1.5.x, PassportJS Authentication
+                                    </div>
+                                    <div class="pl-desc-summary">
+                                        Building off of my previous experience with VolunteerApp and MEAN Blog, I was able to quickly build out the Express backend,
+                                        get a mongoDB database setup and install necessary tooling. I used MongooseJS to create and interface with collections for
+                                        Images, Users, Posts(blog) and Projects. I used Angular 1.5 used to create the SPA front end with a focus on using components
+                                        for organization and reuse.
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                     </div>
-                    <svg class="pl-svg-image visible-md-block visible-lg-block " height="30" width="30">
-                        <g>
-                            <circle cx="15" cy="15" r="15" fill="black"></circle>
-                            <text x="11" y="20" fill="white">4</text>
-                        </g>
-                    </svg>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="visible-md-block visible-lg-block col-md-12">
                 <div class="pl-desc-wrapper">
-                    <div ng-class="$ctrl.changeActiveDesc(1)" class="pl-desc-container">
+                    <div class="pl-desc-container">
                         <h4 class="pl-desc-title">
                             1 | Volunteer App
                         </h4>
@@ -144,7 +179,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 
 </div>

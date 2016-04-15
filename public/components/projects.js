@@ -33,7 +33,7 @@ angular.module('projects-module', ['ngTouch','ngAnimate'])
                     var projectNodes = document.querySelectorAll('.pl-image-inner-container');
                     var currentProjectNode = projectNodes[scope.currentProject-1];
                     var scrollOffset = currentProjectNode.scrollHeight-currentProjectNode.offsetHeight;
-
+                    $timeout(projectAutoScroll,10);
                     scope.$watch('currentProject',
                         function(newValue, oldValue){
                             angular.element(currentProjectNode).off();
@@ -158,6 +158,9 @@ function ProjectListCtrl($window) {
     ctrl.changeCurrentProject = function(projectNum) {
         ctrl.currentProject = projectNum;
     };
+
+    //Toggle for showing help screen
+    ctrl.showHelp = false;
 
     //Class for slideout panel in mobile layout
     ctrl.slideOutClass = false;
