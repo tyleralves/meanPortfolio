@@ -336,6 +336,7 @@ a {
 
     .main-menu-col {
         justify-content: flex-end;
+        width: 100%;
     }
 
     .glyphicon-menu-hamburger{
@@ -359,6 +360,22 @@ a {
 
     .pl-image-caption {
         visibility: hidden;
+        align-items: flex-start;
+    }
+
+    .pl-desc-container {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        height: 90vh;
+    }
+
+    #pl-desc-container-2 {
+        height: 50vh;
+    }
+
+    #pl-desc-container-3 {
+        height: 36vh;
     }
 
     .pl-image-outer-container:hover .pl-image-caption {

@@ -36,4 +36,5 @@ mongod --dbpath C:\Users\Tyler\WebstormProjects\meanPortfolio\data
 
 
 NOW:
-Side slide panel on mobile layout
+Fix layout of pl-image-caption on full size layout
+Fix layout of menu icon on full size layout
