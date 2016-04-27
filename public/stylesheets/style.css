@@ -22,7 +22,7 @@ body {
     position: absolute;
     left: 20px;
     top: -5px;
-    transform: scale(.7,.7);
+    transform: scale(.7,.7) rotate(2deg);
     z-index: 999;
 }
 
@@ -222,10 +222,13 @@ ul.nav a:hover, ul.nav a:focus{
     font-size: 17px;
 }
 
+/*Change height of pl-row to accomodate box shadow of .pl-image-outer-container */
+
 .pl-image-outer-container {
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
     height: 87vh;
     overflow: hidden;
+    padding-bottom: 5px;
     position: relative;
     width: 100%;
 }
@@ -400,6 +403,7 @@ ul.nav a:hover, ul.nav a:focus{
     .pl-image-outer-container {
         border: 1px solid grey;
         box-shadow: none;
+        height: 90vh;
         width: 100%;
         margin-bottom: 0;
     }
@@ -417,7 +421,7 @@ ul.nav a:hover, ul.nav a:focus{
         display: flex;
         flex-flow: column;
         justify-content: center;
-        height: 87vh;
+        height: 90vh;
     }
 
     #pl-desc-container-2 {
@@ -446,6 +450,7 @@ ul.nav a:hover, ul.nav a:focus{
 
 
     .pl-image-inner-container {
+        height: 90vh;
         overflow-y: hidden;
         width: 100%;
     }

@@ -1,6 +1,8 @@
 MEAN Portfolio: Social network for work portfolios
 
 TODO: Fix url bar height glitch on mobile devices
+TODO: Replace help icon/screen with small animated swipe icon
+
 
 Databases:
 1. Users
