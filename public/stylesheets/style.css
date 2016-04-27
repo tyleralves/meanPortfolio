@@ -191,7 +191,7 @@ ul.nav a:hover, ul.nav a:focus{
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    height: 87vh;
     position: relative;
     width: 20px;
 }
@@ -224,7 +224,7 @@ ul.nav a:hover, ul.nav a:focus{
 
 .pl-image-outer-container {
     box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
-    height: 90vh;
+    height: 87vh;
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -232,7 +232,7 @@ ul.nav a:hover, ul.nav a:focus{
 
 /* Hides scrollbar*/
 .pl-image-inner-container {
-    height: 90vh;
+    height: 87vh;
     margin-bottom: 15px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -417,7 +417,7 @@ ul.nav a:hover, ul.nav a:focus{
         display: flex;
         flex-flow: column;
         justify-content: center;
-        height: 90vh;
+        height: 87vh;
     }
 
     #pl-desc-container-2 {
