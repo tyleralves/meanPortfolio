@@ -19,22 +19,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body ng-app="meanPortfolio">
-    <svg id="grid-svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
-                <path id="smallGridPath" d="M 8 0 L 0 0 0 8" fill="none" stroke="#85987A" stroke-width="0.5" stroke-dasharray="16"/>
-            </pattern>
-            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-                <rect width="80" height="80" fill="url(#smallGrid)"/>
-                <path id="largeGridPath" d="M 80 0 L 0 0 0 80" fill="none" stroke="#85987A" stroke-width="1" stroke-dasharray="160"/>
-            </pattern>
-            <pattern id="leftSidePattern" width="15" height="80" patternUnits="userSpaceOnUse">
-                <path d="M 15 0 L 0 0" stroke="#85987A" stroke-width="1" fill="none"></path>
-            </pattern>
-        </defs>
-        <rect id='engLeftSide' width="15" height="100%" fill="url(#leftSidePattern)"></rect>
-        <rect id='mainGrid' fill="url(#grid)" />
-    </svg>
+
+        <svg id="grid-svg" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+                    <path id="smallGridPath" d="M 8 0 L 0 0 0 8" fill="none" stroke="#85987A" stroke-width="0.5" stroke-dasharray="16"/>
+                </pattern>
+                <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                    <rect width="80" height="80" fill="url(#smallGrid)"/>
+                    <path id="largeGridPath" d="M 80 0 L 0 0 0 80" fill="none" stroke="#85987A" stroke-width="1" stroke-dasharray="160"/>
+                </pattern>
+                <pattern id="leftSidePattern" width="15" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 15 0 L 0 0" stroke="#85987A" stroke-width="1" fill="none"></path>
+                </pattern>
+            </defs>
+            <rect id='engLeftSide' width="15" height="100%" fill="url(#leftSidePattern)"></rect>
+            <rect id='mainGrid' fill="url(#grid)" />
+        </svg>
 
         <div class="container-fluid">
             <div class="row">
