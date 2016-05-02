@@ -22,7 +22,7 @@ function MainCtrl($timeout){
         ctrl.navShow = true;
     };
 
-    //Draw page background grid
+    /*Draw page background grid
     var largeGridPathNode = document.getElementById('largeGridPath');
     var smallGridPathNode = document.getElementById('smallGridPath');
     Velocity(largeGridPathNode, {'stroke-dashoffset': 160}, 0);
@@ -30,8 +30,8 @@ function MainCtrl($timeout){
 
     Velocity(smallGridPathNode, {'stroke-dashoffset': 16}, 0);
     Velocity(smallGridPathNode, {'stroke-dashoffset': 0}, {duration: 500, delay: 985});
-
-    //Draw name in title
+    */
+    /*Draw name in title
     var i = 1;
     function animateText(num){
         if(num<22){
@@ -51,6 +51,6 @@ function MainCtrl($timeout){
             },200);
         }
     }
-    animateText(1);
+    animateText(1);*/
 }
 

@@ -21,25 +21,13 @@ body {
     stroke-opacity: .5;
 }
 
-.self-svg-container {
-
-    width: 100%;
-}
-
-#self-svg {
+#self-svg-object {
     display: block;
+    height: 90vh;
+    margin-left:auto;
+    margin-right:auto;
+    visibility: hidden;
     z-index: 999;
-    margin-left: auto;
-    margin-right: auto;
-    width: 326px;
-}
-
-#self-svg path {
-    stroke-dasharray: 6000;
-    stroke-dashoffset: 6000;
-    transform: translate(-236px,-66px);
-    fill: rgba(0,0,0,.3);
-    fill-opacity: 0;
 }
 
 #self-image-container {
@@ -47,12 +35,18 @@ body {
     margin-right:auto;
 }
 
-#self-image {
-    display: none;
-    position: absolute;
-    left: 38.5%;
-    width: 326px;
-    z-index: 999;
+@media screen and (max-width:992px){
+    .self-svg-container {
+        position: fixed;
+        left: -500px;
+        right: -500px;
+        overflow: hidden;
+        display: inline-block;
+        height: 90vh;
+    }
+
+    #self-svg-object {
+    }
 }
 
 #name-svg {
@@ -64,17 +58,8 @@ body {
     z-index: 999;
 }
 
-#name-trace-layer path {
-    fill:none;
-    stroke-width: 2px;
-    stroke: black;
-    stroke-dasharray: 1800;
-    stroke-dashoffset: 1800;
-}
-
 #name-fill-layer path {
     fill: black;
-    fill-opacity: 0;
 }
 
 #mainGrid {
