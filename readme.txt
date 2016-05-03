@@ -42,4 +42,3 @@ Fix help screen on mobile widescreen layout
 
 TODO: Ensure svg height shows to at least knees in full layout
 TODO: Arrange labels in both full and mobile layout
-TODO: Image map to show labels on hover over objects

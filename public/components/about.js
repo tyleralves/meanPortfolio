@@ -31,15 +31,17 @@ function aboutCtrl($timeout){
         selfPortraitPathArray = selfSvgDoc.querySelectorAll('.self-svg-portrait');
         //Sets stroke offset on label lines and hides other label elements
         selfSvgLabelArray = selfSvgDoc.getElementsByClassName('self-svg-label');
+
         for(var j=0; j<selfSvgLabelArray.length;j++){
-            for(var k=0; k<selfSvgLabelArray[j].children.length;k++){
-                //alert();
-                if(selfSvgLabelArray[j].children[k].getAttribute('class') === 'self-label-path'){
-                    var labelLength = selfSvgLabelArray[j].children[k].getTotalLength();
-                    selfSvgLabelArray[j].children[k].setAttribute('stroke-dasharray',labelLength);
-                    selfSvgLabelArray[j].children[k].setAttribute('stroke-dashoffset',labelLength);
-                }else if(selfSvgLabelArray[j].children[k].tagName==='text'){
-                    selfSvgLabelArray[j].children[k].style.visibility = 'hidden';
+            console.log(selfSvgLabelArray[j]);
+            for(var k=0; k<selfSvgLabelArray[j].childNodes.length;k++){
+                console.log(selfSvgLabelArray[j].childNodes[k].nodeType);
+                if(selfSvgLabelArray[j].childNodes[k].nodeType!==3 && selfSvgLabelArray[j].childNodes[k].getAttribute('class') === 'self-label-path'){
+                    var labelLength = selfSvgLabelArray[j].childNodes[k].getTotalLength();
+                    selfSvgLabelArray[j].childNodes[k].setAttribute('stroke-dasharray',labelLength);
+                    selfSvgLabelArray[j].childNodes[k].setAttribute('stroke-dashoffset',labelLength);
+                }else if(selfSvgLabelArray[j].childNodes[k].tagName==='text'){
+                    selfSvgLabelArray[j].childNodes[k].style.visibility = 'hidden';
                 }
             }
         }
@@ -69,10 +71,10 @@ function aboutCtrl($timeout){
             console.log(selfSvgMap[i].id.slice(selfSvgMap[i].id.lastIndexOf('-')+1));
             selfSvgMap[i].addEventListener('mouseover', function(event){
                 labelParts = event.target.parentNode;
-                label = labelParts.getElementsByClassName('self-label-path')[0];
+                label = labelParts.querySelector('.self-label-path');
                 labelLengthMap = label.getTotalLength();
-                title = labelParts.getElementsByClassName('self-label-title')[0];
-                summary = labelParts.getElementsByClassName('self-label-summary')[0];
+                title = labelParts.querySelector('.self-label-title');
+                summary = labelParts.querySelector('.self-label-summary');
                 Velocity(label, 'stop');
                 Velocity(label,{'stroke-dashoffset':0},{duration:1000, complete: function(){
                     Velocity(title,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
