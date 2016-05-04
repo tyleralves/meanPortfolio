@@ -1,16 +1,25 @@
 /**
  * Created by Tyler on 3/24/2016.
  */
-angular.module('about-module', [])
+angular.module('about-module', ['ngAnimate'])
     .component('aboutComponent',{
        templateUrl: 'public/views/about.ejs',
         controller: aboutCtrl
     });
+    /*.animation('.testAnimate', [function(){
+        return {
+            addClass: function(element, className, doneFn){
+                Velocity(element, {'opacity': 0}, {duration: 3000});
+            }
+        }
+    }]);*/
 
-function aboutCtrl($timeout){
+function aboutCtrl($timeout, $scope, $animate){
+    var ctrl = this;
+
     //Draw name in title
     var selfSvgRef = document.getElementById('self-svg-object');
-    var selfSvgDoc, selfPortraitPathArray, selfLabelConnectorPathArray, selfImage, selfSvgPathArray, selfSvgLabelArray;
+    var selfSvgDoc, selfPortraitPathArray, selfLabelConnectorPathArray, selfImage, selfSvgPathArray, selfSvgLabelArray, selfImageAngular, testDiv;
 
     function animateSelfSvg(num){
         if(num<selfPortraitPathArray.length){
@@ -23,10 +32,14 @@ function aboutCtrl($timeout){
             Velocity(selfImage, {'opacity':1}, {duration: 2000, delay: 300});
         }
     }
-    
+
     selfSvgRef.addEventListener('load',function(){
         selfSvgDoc = selfSvgRef.contentDocument;
         selfImage = selfSvgDoc.querySelector('#self-portrait-image');
+        testDiv = document.getElementById('testDiv');
+        selfImageAngular = angular.element(testDiv);
+
+
         //selfSvgPathArray = selfSvgDoc.querySelectorAll('path');
         selfPortraitPathArray = selfSvgDoc.querySelectorAll('.self-svg-portrait');
         //Sets stroke offset on label lines and hides other label elements
@@ -68,32 +81,40 @@ function aboutCtrl($timeout){
         var selfSvgMap = selfSvgDoc.querySelectorAll('.self-portrait-map');
 
         for(var i = 0; i<selfSvgMap.length; i++){
-            console.log(selfSvgMap[i].id.slice(selfSvgMap[i].id.lastIndexOf('-')+1));
             selfSvgMap[i].addEventListener('mouseover', function(event){
                 labelParts = event.target.parentNode;
                 label = labelParts.querySelector('.self-label-path');
                 labelLengthMap = label.getTotalLength();
                 title = labelParts.querySelector('.self-label-title');
                 summary = labelParts.querySelector('.self-label-summary');
-                Velocity(label, 'stop');
-                Velocity(label,{'stroke-dashoffset':0},{duration:1000, complete: function(){
-                    Velocity(title,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
-                    Velocity(summary,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
-                }});
-
+                console.log(document.body.clientWidth/document.body.clientHeight>8/5);
+                if(window.innerWidth/window.innerHeight>8/5){
+                    Velocity(label, 'stop');
+                    Velocity(label,{'stroke-dashoffset':0},{duration:1000, complete: function(){
+                        Velocity(title,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
+                        Velocity(summary,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
+                    }});
+                }else{
+                    //Display alternate label
+                    ctrl.selfAltLabel=event.target.id;
+                    $scope.$apply();
+                }
             });
 
 
             selfSvgMap[i].addEventListener('mouseout', function(event){
                 heartLabelCurrentOffset = parseInt(label.style.strokeDashoffset);
-                heartLabelDuration = ((labelLength - heartLabelCurrentOffset)/labelLength * 1000);
+                heartLabelDuration = ((labelLengthMap - heartLabelCurrentOffset)/labelLength * 1000);
                 Velocity(label, 'stop');
                 Velocity(title, 'stop');
                 Velocity(summary, 'stop');
-                Velocity(label, {'stroke-dashoffset':labelLength}, {begin: function(){
+                Velocity(label, {'stroke-dashoffset':labelLengthMap}, {begin: function(){
                     Velocity(title,{'fill-opacity':0});
                     Velocity(summary,{'fill-opacity':0},{queue:false});
                 }, duration: heartLabelDuration});
+
+
+
             });
         }
 

@@ -40,5 +40,6 @@ mongod --dbpath C:\Users\Tyler\WebstormProjects\meanPortfolio\data
 NOW:
 Fix help screen on mobile widescreen layout
 
-TODO: Ensure svg height shows to at least knees in full layout
-TODO: Arrange labels in both full and mobile layout
+TODO: Make name-svg large behind self-image on home page, shrink to small title on projects
+TODO: Align projects lower on screen to avoid overlap of name-svg in title
+TODO: Make mobile portrait labels (bottom of screen)
