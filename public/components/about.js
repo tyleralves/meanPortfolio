@@ -46,9 +46,7 @@ function aboutCtrl($timeout, $scope, $animate){
         selfSvgLabelArray = selfSvgDoc.getElementsByClassName('self-svg-label');
 
         for(var j=0; j<selfSvgLabelArray.length;j++){
-            console.log(selfSvgLabelArray[j]);
             for(var k=0; k<selfSvgLabelArray[j].childNodes.length;k++){
-                console.log(selfSvgLabelArray[j].childNodes[k].nodeType);
                 if(selfSvgLabelArray[j].childNodes[k].nodeType!==3 && selfSvgLabelArray[j].childNodes[k].getAttribute('class') === 'self-label-path'){
                     var labelLength = selfSvgLabelArray[j].childNodes[k].getTotalLength();
                     selfSvgLabelArray[j].childNodes[k].setAttribute('stroke-dasharray',labelLength);
@@ -87,7 +85,6 @@ function aboutCtrl($timeout, $scope, $animate){
                 labelLengthMap = label.getTotalLength();
                 title = labelParts.querySelector('.self-label-title');
                 summary = labelParts.querySelector('.self-label-summary');
-                console.log(document.body.clientWidth/document.body.clientHeight>8/5);
                 if(window.innerWidth/window.innerHeight>8/5){
                     Velocity(label, 'stop');
                     Velocity(label,{'stroke-dashoffset':0},{duration:1000, complete: function(){
@@ -105,13 +102,21 @@ function aboutCtrl($timeout, $scope, $animate){
             selfSvgMap[i].addEventListener('mouseout', function(event){
                 heartLabelCurrentOffset = parseInt(label.style.strokeDashoffset);
                 heartLabelDuration = ((labelLengthMap - heartLabelCurrentOffset)/labelLength * 1000);
-                Velocity(label, 'stop');
-                Velocity(title, 'stop');
-                Velocity(summary, 'stop');
-                Velocity(label, {'stroke-dashoffset':labelLengthMap}, {begin: function(){
-                    Velocity(title,{'fill-opacity':0});
-                    Velocity(summary,{'fill-opacity':0},{queue:false});
-                }, duration: heartLabelDuration});
+                if(window.innerWidth/window.innerHeight>8/5) {
+                    Velocity(label, 'stop');
+                    Velocity(title, 'stop');
+                    Velocity(summary, 'stop');
+                    Velocity(label, {'stroke-dashoffset': labelLengthMap}, {
+                        begin: function () {
+                            Velocity(title, {'fill-opacity': 0});
+                            Velocity(summary, {'fill-opacity': 0}, {queue: false});
+                        }, duration: heartLabelDuration
+                    });
+                }else{
+                    ctrl.selfAltLabel='false';
+                    console.log(ctrl.selfAltLabel);
+                    $scope.$apply();
+                }
 
 
 
