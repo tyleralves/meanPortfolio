@@ -1,10 +1,7 @@
-<div class="container-fluid">
+<div self-svg on-self-label-change="$ctrl.selfAltLabelChange(label)" class="container-fluid">
     <div class="row">
         <div class="col-md-12 full-page-col">
-            <!--<div id="testDiv" ng-class="$ctrl.testClass">
-                TESTTTESTTEST
-            </div>-->
-            <div class="self-alt-label" ng-show="$ctrl.selfAltLabel=='self-portrait-map-heart'">
+            <div class="self-alt-label" ng-show="$ctrl.selfAltLabelShow('self-portrait-map-heart')">
                 <h4>Heart</h4>
                 <span>
                    I have a passion for web development. Solving backend challenges and producing a sensible
@@ -12,13 +9,13 @@
                     in my educational and professional experience.
                 </span>
             </div>
-            <div class="self-alt-label" ng-show="$ctrl.selfAltLabel=='self-portrait-map-laptop'">
+            <div class="self-alt-label" ng-show="$ctrl.selfAltLabel==='self-portrait-map-laptop'">
                 <h4>Laptop</h4>
                 <span>
                     {{$ctrl.selfAltLabel}}
                 </span>
             </div>
-            <div class="self-alt-label" ng-show="$ctrl.selfAltLabel=='self-portrait-map-rope'">
+            <div class="self-alt-label" ng-show="$ctrl.selfAltLabel==='self-portrait-map-rope'">
                 <h4>Rope</h4>
                 <span>
                      Climbing has always been an immense source of happiness in my life. Through it I have met life-long friends, released stress, kept in
