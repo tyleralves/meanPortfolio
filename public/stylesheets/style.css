@@ -347,8 +347,8 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-image-3 {
-    background: url("/public/images/sampleScreen2.png") no-repeat;
-    background-size: cover;
+    background: url("/public/images/DOCDataScreen.png") no-repeat;
+    background-size: contain;
 }
 
 .pl-image-4 {
