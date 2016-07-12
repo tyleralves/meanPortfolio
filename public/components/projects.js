@@ -1,7 +1,7 @@
 /**
  * Created by Tyler on 3/24/2016.
  */
-angular.module('projects-module', [])
+angular.module('projects-module', ['ngTouch'])
     .component('projectsComponent', {
         templateUrl: 'public/views/projects.ejs',
         controller: ProjectCtrl
