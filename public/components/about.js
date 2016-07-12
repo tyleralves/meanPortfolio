@@ -1,7 +1,7 @@
 /**
  * Created by Tyler on 3/24/2016.
  */
-function selfSvgDirective($timeout,$scope){
+function selfSvgDirective($timeout){
     return {
         restrict: 'A',
         scope: {
@@ -108,7 +108,7 @@ function selfSvgDirective($timeout,$scope){
 
 }
 
-function aboutCtrl($timeout, $scope, $animate){
+function aboutCtrl($scope){
     var ctrl = this;
 
     ctrl.selfAltLabelChange = function(label){
@@ -126,16 +126,10 @@ function aboutCtrl($timeout, $scope, $animate){
 
 selfSvgDirective.$inject = ['$timeout'];
 
-angular.module('about-module', ['ngAnimate'])
+angular.module('about-module', [])
     .component('aboutComponent',{
        templateUrl: 'public/views/about.ejs',
         controller: aboutCtrl
     })
     .directive('selfSvg', selfSvgDirective);
-    /*.animation('.testAnimate', [function(){
-        return {
-            addClass: function(element, className, doneFn){
-                Velocity(element, {'opacity': 0}, {duration: 3000});
-            }
-        }
-    }]);*/
+    

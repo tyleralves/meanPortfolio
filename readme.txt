@@ -42,4 +42,3 @@ Fix help screen on mobile widescreen layout
 
 TODO: Make name-svg large behind self-image on home page, shrink to small title on projects
 TODO: Align projects lower on screen to avoid overlap of name-svg in title
-TODO: Make mobile portrait labels (bottom of screen)

@@ -337,12 +337,12 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-image-1 {
-    background: url("/public/images/volunteerAppScreen.png") no-repeat;
+    background: url("/public/images/storkDeliveryScreen.png") no-repeat;
     background-size: cover;
 }
 
 .pl-image-2 {
-    background: url("/public/images/sampleScreen1.png") no-repeat;
+    background: url("/public/images/volunteerAppScreen.png") no-repeat;
     background-size: cover;
 }
 
@@ -362,22 +362,32 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-desc-title {
-    color: white;
-    font-size: 19px;
+    color: chartreuse;
+    font-family: 'Shadows Into Light Two', "Open Sans", sans-serif;
+    font-size: 22px;
+    letter-spacing: .05em;
     font-weight: 600;
+}
+
+.pl-desc-btn-container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+
+.pl-desc-link {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pl-desc-btn {    /*Align center, add glyphicon link and stat page*/
     border: 2px solid chartreuse;
     border-radius: 0;
     color: #7fff00;
-    display: block;
     font: 600 17px "Open Sans", sans-serif;
     height: 40px;
-    line-height: 1.4;
-    margin: 15px auto;
+    line-height: 1.4em;
     vertical-align: middle;
-    width: 50%;
 }
 
 .pl-desc-label {
