@@ -369,6 +369,10 @@ ul.nav a:hover, ul.nav a:focus{
     font-weight: 600;
 }
 
+.pl-desc-title>small{
+    color: chartreuse;
+}
+
 .pl-desc-btn-container {
     display: flex;
     flex-direction: row;
