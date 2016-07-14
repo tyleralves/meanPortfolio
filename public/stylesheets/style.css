@@ -393,6 +393,8 @@ ul.nav a:hover, ul.nav a:focus{
     height: 40px;
     line-height: 1.4em;
     vertical-align: middle;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .pl-desc-label {
