@@ -234,23 +234,22 @@
          space="preserve"
          font-size="40px"
          class="self-label-summary"
-         y="573.02625"
+         y="470"
          font-stretch="normal"
          font-variant="normal"
          font-style="normal"
          x="-94"
          font-weight="normal"
          fill="#000000">
-        <tspan
-           id="tspan4167-1"
-           font-size="16px"
-           font-family="Batang"
-           font-style="normal"
-           font-stretch="normal"
-           font-variant="normal"
-           y="573.02625"
-           x="-94"
-           font-weight="normal">Frameworks:</tspan>
+        <tspan font-size="16" font-weight="600" x="-94" dy="1.2em">Languages/ Frameworks:</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- NodeJS</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- VanillaJS (preferred) and JQuery</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- MongoDB/ Mongoose</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- Angular 1.5.x</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- Express</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- PassportJS/ jwtWebTokens</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- Google Maps API</tspan>
+        <tspan font-size="16" x="-94" dy="1.2em">- ArcGIS Server API</tspan>
       </text>
     </g>
     <g

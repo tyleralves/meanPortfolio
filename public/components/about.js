@@ -98,7 +98,6 @@ function selfSvgDirective($timeout){
                             });
                         }else{
                             scope.onSelfLabelChange({label: ''});
-                            console.log('mouseout!');
                         }
                     });
                 }

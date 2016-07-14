@@ -1,14 +1,9 @@
 MEAN Portfolio: Social network for work portfolios
 
-TODO: Fix url bar height glitch on mobile devices
-TODO: Replace help icon/screen with small animated swipe icon
-
-
-Databases:
+Databases (future blog implementation):
 1. Users
-2. Projects (static instead?)
-3. Blog Posts
-4. Images
+2. Blog Posts
+3. Images
 
 Scope:
 1. Index:
@@ -27,18 +22,3 @@ Style Guides:
 HTML5/ CSS: Google
 Javascript: Airbnb
 Angular: Todd Motto
-
-
-StartUp:
-Mongo Executables:
-cd C:\program files\mongodb\server\3.2\bin
-
-Local mongo server (now using MongoLab database):
-mongod --dbpath C:\Users\Tyler\WebstormProjects\meanPortfolio\data
-
-
-NOW:
-Fix help screen on mobile widescreen layout
-
-TODO: Make name-svg large behind self-image on home page, shrink to small title on projects
-TODO: Align projects lower on screen to avoid overlap of name-svg in title
