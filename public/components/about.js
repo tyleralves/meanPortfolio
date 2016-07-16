@@ -19,7 +19,7 @@ function selfSvgDirective($timeout, $interval){
                     },700);
                 }else{
                     //Velocity(selfPortraitPathArray, {'stroke-opacity': 0, 'fill-opacity':0}, {duration: 1000, delay: 300});
-                    Velocity(selfImage, {'opacity':.7}, {duration: 2000, delay: 300});
+                    Velocity(selfImage, {'opacity':.5}, {duration: 2000, delay: 300});
                 }
             }
 
