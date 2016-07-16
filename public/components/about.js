@@ -1,7 +1,7 @@
 /**
  * Created by Tyler on 3/24/2016.
  */
-function selfSvgDirective($timeout){
+function selfSvgDirective($timeout, $interval){
     return {
         restrict: 'A',
         scope: {
@@ -9,7 +9,7 @@ function selfSvgDirective($timeout){
         },
         link: function(scope, element, attr){
             var selfSvgRef = document.getElementById('self-svg-object');
-            var selfSvgDoc, selfPortraitPathArray, selfLabelConnectorPathArray, selfImage, selfSvgPathArray, selfSvgLabelArray, selfImageAngular, testDiv;
+            var selfSvgDoc, selfPortraitPathArray, selfLabelConnectorPathArray, selfImage, selfSvgPathArray, selfSvgLabelArray, selfMapArray, selfMapLength;
 
             function animateSelfSvg(num){
                 if(num<selfPortraitPathArray.length){
@@ -18,16 +18,19 @@ function selfSvgDirective($timeout){
                         animateSelfSvg(num+1);
                     },700);
                 }else{
-                    Velocity(selfPortraitPathArray, {'stroke-opacity': 0, 'fill-opacity':0}, {duration: 1000, delay: 300});
-                    Velocity(selfImage, {'opacity':1}, {duration: 2000, delay: 300});
+                    //Velocity(selfPortraitPathArray, {'stroke-opacity': 0, 'fill-opacity':0}, {duration: 1000, delay: 300});
+                    Velocity(selfImage, {'opacity':.7}, {duration: 2000, delay: 300});
                 }
+            }
+
+            function animateMaps(i){
+                Velocity(selfMapArray[i], {'fill-opacity': .3}, {duration: 1000, loop: 1});
             }
 
             selfSvgRef.addEventListener('load',function(){
                 selfSvgDoc = selfSvgRef.contentDocument;
                 selfImage = selfSvgDoc.querySelector('#self-portrait-image');
-                testDiv = document.getElementById('testDiv');
-                selfImageAngular = angular.element(testDiv);
+                selfMapArray = selfSvgDoc.querySelectorAll('.self-portrait-map');
 
                 selfPortraitPathArray = selfSvgDoc.querySelectorAll('.self-svg-portrait');
                 //Sets stroke offset on label lines and hides other label elements
@@ -57,7 +60,17 @@ function selfSvgDirective($timeout){
                 selfImage.setAttribute('opacity',0);
                 animateSelfSvg(1);
 
-                //SVG Hover Events
+                //Highlights each hover-over map in turn
+                var count = 0;
+                $interval(function(){
+                    if(count === selfMapArray.length){
+                        count=0;
+                    }
+                    animateMaps(count);
+                    count++;
+                }, 3000);
+
+                //SVG Hover Label Events
                 var heartLabelCurrentOffset, heartLabelDuration;
                 var label, title, summary;
                 var labelParts, labelLengthMap;
@@ -123,7 +136,7 @@ function aboutCtrl($scope){
     };
 }
 
-selfSvgDirective.$inject = ['$timeout'];
+selfSvgDirective.$inject = ['$timeout', '$interval'];
 
 angular.module('about-module', [])
     .component('aboutComponent',{

@@ -93,10 +93,11 @@
          stroke-linejoin="miter"
          d="m369.72,312.28-19.792-16.964-9.8958,18.378-14.137-15.551-14.137,18.378,31.101,33.928z"
          class="self-portrait-map"
-         stroke="transparent"
          stroke-linecap="butt"
          stroke-width="1px"
-         fill="transparent" />
+         stroke="transparent"
+         fill-opacity="0"
+         fill="lightgrey" />
       <text
          id="self-label-summary-heart"
          style="letter-spacing:0px;word-spacing:0px;"
@@ -225,7 +226,8 @@
          stroke="transparent"
          stroke-linecap="butt"
          stroke-width="1px"
-         fill="transparent" />
+         fill-opacity="0"
+         fill="lightgrey" />
       <text
          id="text3823-5-2-3"
          style="letter-spacing:0px;word-spacing:0px;"
@@ -263,7 +265,8 @@
          stroke="transparent"
          stroke-linecap="butt"
          stroke-width="1px"
-         fill="transparent" />
+         fill="lightgrey"
+         fill-opacity="0"/>
       <path
          id="self-label-path-rope"
          stroke-linejoin="miter"
