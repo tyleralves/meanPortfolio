@@ -150,10 +150,16 @@ a:hover {
     width: 20px;
 }
 
-.main-menu-col>a, .main-menu-col>a:hover,.main-menu-col>a:active,.main-menu-col>a:visited {
+.activeNav {
+    font-size: 40px;
+}
+
+.main-menu-col>a, .main-menu-col>a:link, .main-menu-col>a:visited .main-menu-col>a:hover,.main-menu-col>a:active {
+    font-size: 22px;
     margin-left: auto;
     margin-right: auto;
     color: black;
+    text-decoration: none;
 }
 
 .glyphicon-menu-hamburger {
@@ -495,11 +501,11 @@ ul.nav a:hover, ul.nav a:focus{
     }
 
     #pl-desc-container-2 {
-        height: 50vh;
+        height: 43vh;
     }
 
     #pl-desc-container-3 {
-        height: 36vh;
+        height: 43vh;
     }
 
     .pl-image-outer-container:hover .pl-image-caption {
@@ -526,12 +532,12 @@ ul.nav a:hover, ul.nav a:focus{
     }
 
     .pl-image-container-2 {
-        height: 50vh;
+        height: 43vh;
         margin-bottom: 4vh;
     }
 
     .pl-image-container-3 {
-        height: 36vh;
+        height: 43vh;
     }
 
     .pl-image-scroll {

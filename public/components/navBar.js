@@ -10,7 +10,7 @@ angular.module('meanPortfolio')
         }
     });
 
-function NavBarCtrl(){
+function NavBarCtrl($location){
     var $ctrl = this;
     this.testString = "Hello world";
     this.loggedIn = true;
@@ -20,5 +20,7 @@ function NavBarCtrl(){
         $ctrl.loggedIn = !$ctrl.loggedIn;
     }
 }
+
+NavBarCtrl.$inject = ['$location'];
 
 

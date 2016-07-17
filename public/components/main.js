@@ -15,11 +15,14 @@ angular.module('meanPortfolio',['ngComponentRouter','about-module', 'projects-mo
         ]
     });
 
-function MainCtrl(){
+function MainCtrl($location){
     var ctrl = this;
     ctrl.navShow = false;
+
     ctrl.toggleNav = function(){
         ctrl.navShow = true;
     };
 }
+
+MainCtrl.$inject = ['$location'];
 
