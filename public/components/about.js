@@ -1,7 +1,7 @@
 /**
  * Created by Tyler on 3/24/2016.
  */
-function selfSvgDirective($timeout, $interval){
+function selfSvgDirective($timeout, $interval, $window){
     return {
         restrict: 'A',
         scope: {
@@ -10,7 +10,6 @@ function selfSvgDirective($timeout, $interval){
         link: function(scope, element, attr){
             var selfSvgRef = document.getElementById('self-svg-object');
             var selfSvgDoc, selfPortraitPathArray, selfLabelConnectorPathArray, selfImage, selfSvgPathArray, selfSvgLabelArray, selfMapArray, selfMapLength;
-
             function animateSelfSvg(num){
                 if(num<selfPortraitPathArray.length){
                     $timeout(function(){
@@ -19,22 +18,39 @@ function selfSvgDirective($timeout, $interval){
                     },700);
                 }else{
                     //Velocity(selfPortraitPathArray, {'stroke-opacity': 0, 'fill-opacity':0}, {duration: 1000, delay: 300});
-                    Velocity(selfImage, {'opacity':.5}, {duration: 2000, delay: 300});
+                    //Velocity(selfImage, {'opacity':.5}, {duration: 2000, delay: 300});
                 }
             }
 
             function animateMaps(i){
-                Velocity(selfMapArray[i], {'fill-opacity': .3}, {duration: 1000, loop: 1});
+                Velocity(selfMapArray[i], {'fill-opacity': .3}, {duration: 500, loop: 1});
             }
 
             selfSvgRef.addEventListener('load',function(){
+
                 selfSvgDoc = selfSvgRef.contentDocument;
-                selfImage = selfSvgDoc.querySelector('#self-portrait-image');
+                //selfImage = selfSvgDoc.querySelector('#self-portrait-image');
                 selfMapArray = selfSvgDoc.querySelectorAll('.self-portrait-map');
 
                 selfPortraitPathArray = selfSvgDoc.querySelectorAll('.self-svg-portrait');
                 //Sets stroke offset on label lines and hides other label elements
                 selfSvgLabelArray = selfSvgDoc.getElementsByClassName('self-svg-label');
+
+                if($window.innerWidth>992){
+                    for(var i = 0; i < selfPortraitPathArray.length; i++){
+                        var selfPortraitPathLength = selfPortraitPathArray[i].getTotalLength();
+                        selfPortraitPathArray[i].setAttribute('fill-opacity',0);
+                        selfPortraitPathArray[i].setAttribute('fill', 'black');
+                        selfPortraitPathArray[i].setAttribute('stroke-dasharray', selfPortraitPathLength);
+                        selfPortraitPathArray[i].setAttribute('stroke-dashoffset', selfPortraitPathLength);
+                    }
+                    selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
+                    animateSelfSvg(1);
+                }else{
+                    selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
+                    //selfImage.setAttribute('opacity',.5);
+                }
+
 
                 for(var j=0; j<selfSvgLabelArray.length;j++){
                     for(var k=0; k<selfSvgLabelArray[j].childNodes.length;k++){
@@ -48,27 +64,17 @@ function selfSvgDirective($timeout, $interval){
                     }
                 }
 
-                for(var i = 0; i < selfPortraitPathArray.length; i++){
-                    selfPortraitPathArray[i].setAttribute('stroke-dasharray',6000);
-                    selfPortraitPathArray[i].setAttribute('stroke-dashoffset',6000);
-                    selfPortraitPathArray[i].setAttribute('fill','black');
-                    selfPortraitPathArray[i].setAttribute('fill-opacity',0);
-                    //selfSvgPathArray[i].setAttribute('transform',"translate(400,-100)");
-                }
-
-                selfSvgRef.style.visibility='visible';
-                selfImage.setAttribute('opacity',0);
-                animateSelfSvg(1);
 
                 //Highlights each hover-over map in turn
                 var count = 0;
-                $interval(function(){
+                var mapInterval = $interval(function(){
                     if(count === selfMapArray.length){
                         count=0;
                     }
                     animateMaps(count);
                     count++;
                 }, 3000);
+
 
                 //SVG Hover Label Events
                 var heartLabelCurrentOffset, heartLabelDuration;
@@ -83,7 +89,7 @@ function selfSvgDirective($timeout, $interval){
                         labelLengthMap = label.getTotalLength();
                         title = labelParts.querySelector('.self-label-title');
                         summary = labelParts.querySelector('.self-label-summary');
-                        if(window.innerWidth/window.innerHeight>8/5){
+                        if(window.innerWidth>992){
                             Velocity(label, 'stop');
                             Velocity(label,{'stroke-dashoffset':0},{duration:1000, complete: function(){
                                 Velocity(title,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
@@ -92,14 +98,13 @@ function selfSvgDirective($timeout, $interval){
                         }else{
                             //Display alternate label
                             scope.onSelfLabelChange({label: event.target.id});
-                            console.log('mouseover');
                         }
                     });
 
                     selfSvgMap[i].addEventListener('mouseout', function(event){
                         heartLabelCurrentOffset = parseInt(label.style.strokeDashoffset);
                         heartLabelDuration = ((labelLengthMap - heartLabelCurrentOffset)/labelLength * 1000);
-                        if(window.innerWidth/window.innerHeight>8/5) {
+                        if(window.innerWidth>992) {
                             Velocity(label, 'stop');
                             Velocity(title, 'stop');
                             Velocity(summary, 'stop');
@@ -136,7 +141,7 @@ function aboutCtrl($scope){
     };
 }
 
-selfSvgDirective.$inject = ['$timeout', '$interval'];
+selfSvgDirective.$inject = ['$timeout', '$interval', '$window'];
 
 angular.module('about-module', [])
     .component('aboutComponent',{
