@@ -13,12 +13,9 @@ function selfSvgDirective($timeout, $interval, $window){
             function animateSelfSvg(num){
                 if(num<selfPortraitPathArray.length){
                     $timeout(function(){
-                        Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .5}, {duration: 1400});
+                        Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .3}, {duration: 1400});
                         animateSelfSvg(num+1);
                     },700);
-                }else{
-                    //Velocity(selfPortraitPathArray, {'stroke-opacity': 0, 'fill-opacity':0}, {duration: 1000, delay: 300});
-                    //Velocity(selfImage, {'opacity':.5}, {duration: 2000, delay: 300});
                 }
             }
 
@@ -45,7 +42,7 @@ function selfSvgDirective($timeout, $interval, $window){
                         selfPortraitPathArray[i].setAttribute('stroke-dashoffset', selfPortraitPathLength);
                     }
                     selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
-                    animateSelfSvg(1);
+                    animateSelfSvg(0);
                 }else{
                     selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
                     //selfImage.setAttribute('opacity',.5);
