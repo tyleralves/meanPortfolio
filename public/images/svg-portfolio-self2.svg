@@ -103,7 +103,9 @@
          class="self-portrait-map"
          stroke="transparent"
          inkscape:connector-curvature="0"
-         style="fill:#d3d3d3;fill-opacity:0;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter" />
+         fill="#ef3d47"
+         fill-opacity="0"
+         style="stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter" />
       <text
          id="self-label-summary-heart"
          style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000"
@@ -257,7 +259,9 @@
            font-size="16">- ArcGIS Server API</tspan>
       </text>
       <path
-         style="fill:#d3d3d3;fill-opacity:0;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
+         fill="#d3d3d3"
+         fill-opacity="0"
+         style="stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter"
          inkscape:connector-curvature="0"
          stroke="transparent"
          class="self-portrait-map"
@@ -304,7 +308,9 @@
          class="self-portrait-map"
          stroke="transparent"
          inkscape:connector-curvature="0"
-         style="fill:#d3d3d3;fill-opacity:0;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter" />
+         fill="lightgreen"
+         fill-opacity="0"
+         style="stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter" />
       <path
          id="self-label-path-rope"
          d="M 320.93,366.19 179.07,274.43 H -100"

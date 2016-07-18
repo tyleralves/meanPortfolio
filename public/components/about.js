@@ -9,7 +9,7 @@ function selfSvgDirective($timeout, $interval, $window){
         },
         link: function(scope, element, attr){
             var selfSvgRef = document.getElementById('self-svg-object');
-            var selfSvgDoc, selfPortraitPathArray, selfLabelConnectorPathArray, selfImage, selfSvgPathArray, selfSvgLabelArray, selfMapArray, selfMapLength;
+            var i, selfSvgDoc, selfPortraitPathArray, selfLabelConnectorPathArray, selfImage, selfSvgPathArray, selfSvgLabelArray, selfMapArray, selfMapLength;
             function animateSelfSvg(num){
                 if(num<selfPortraitPathArray.length){
                     $timeout(function(){
@@ -34,18 +34,32 @@ function selfSvgDirective($timeout, $interval, $window){
                 selfSvgLabelArray = selfSvgDoc.getElementsByClassName('self-svg-label');
 
                 if($window.innerWidth>992){
-                    for(var i = 0; i < selfPortraitPathArray.length; i++){
+                    //Sets properties for svg sketch, necessary because mobile view uses initial svg properties
+                    for(i = 0; i < selfPortraitPathArray.length; i++){
                         var selfPortraitPathLength = selfPortraitPathArray[i].getTotalLength();
                         selfPortraitPathArray[i].setAttribute('fill-opacity',0);
                         selfPortraitPathArray[i].setAttribute('fill', 'black');
                         selfPortraitPathArray[i].setAttribute('stroke-dasharray', selfPortraitPathLength);
                         selfPortraitPathArray[i].setAttribute('stroke-dashoffset', selfPortraitPathLength);
                     }
+                    //Sets svg visibility to visible
                     selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
+                    //Begins svg sketch
                     animateSelfSvg(0);
+                    //Highlights each hover-over map in turn
+                    var count = 0;
+                    var mapInterval = $interval(function(){
+                        if(count === selfMapArray.length){
+                            count=0;
+                        }
+                        animateMaps(count);
+                        count++;
+                    }, 3000);
                 }else{
                     selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
-                    //selfImage.setAttribute('opacity',.5);
+                    for(i = 0; i<selfMapArray.length; i++){
+                        selfMapArray[i].setAttribute('fill-opacity',.3);
+                    }
                 }
 
 
@@ -61,25 +75,13 @@ function selfSvgDirective($timeout, $interval, $window){
                     }
                 }
 
-
-                //Highlights each hover-over map in turn
-                var count = 0;
-                var mapInterval = $interval(function(){
-                    if(count === selfMapArray.length){
-                        count=0;
-                    }
-                    animateMaps(count);
-                    count++;
-                }, 3000);
-
-
                 //SVG Hover Label Events
                 var heartLabelCurrentOffset, heartLabelDuration;
                 var label, title, summary;
                 var labelParts, labelLengthMap;
                 var selfSvgMap = selfSvgDoc.querySelectorAll('.self-portrait-map');
 
-                for(var i = 0; i<selfSvgMap.length; i++){
+                for(i = 0; i<selfSvgMap.length; i++){
                     selfSvgMap[i].addEventListener('mouseover', function(event){
                         labelParts = event.target.parentNode;
                         label = labelParts.querySelector('.self-label-path');
