@@ -18,42 +18,6 @@ body {
     letter-spacing: .0625em;
 }
 
-#social-logo-mobile-container {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-}
-
-#social-logo-full-container {
-    align-items: flex-end;
-    display: flex;
-    position: absolute;
-    left: 45vw;
-    top: 5px;
-}
-
-.social-logo {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#social-logo-full-container .social-logo {
-    vertical-align: center;
-    height: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#social-logo-mobile-container .social-logo {
-    width: 25px;
-}
-
-#social-logo-mobile-container #social-logo-linkedin {
-    margin-left: 2px;
-    width: 27px;
-}
-
 #search-div {
     display: none;
 }
@@ -150,16 +114,15 @@ body {
 
 body {
     background-color: #FEFADD;
-    width: 100%;
-    height: 100%;
 }
 
 h1,h2,h3,h4,h5,h6 {
     font-weight: 600;
 }
 
-a {
-    color: #00B7FF;
+a, a:link, a:visited, a:hover, a:active {
+    color: black;
+    text-decoration: none;
 }
 
 a:hover {
@@ -204,6 +167,56 @@ a:hover {
 
 .glyphicon-menu-hamburger {
     font-size: 25px;
+}
+#social-logo-mobile-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+}
+
+#social-logo-full-container {
+    align-items: flex-end;
+    display: flex;
+    position: absolute;
+    left: 45vw;
+    top: 5px;
+}
+
+.social-logo {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#social-logo-full-container .social-logo {
+    vertical-align: center;
+    height: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#social-logo-mobile-container .social-logo {
+    width: 25px;
+}
+
+#social-logo-mobile-container #social-logo-linkedin {
+    margin-left: 2px;
+    width: 27px;
+}
+
+#resume-download {
+    align-items: baseline;
+    display: flex;
+    height: 40px;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    z-index: 1000;
+}
+
+#resume-download>a {
+    font-size: 26px;
 }
 
 @media screen and (max-width: 992px) and (max-height: 450px) {
