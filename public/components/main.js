@@ -6,22 +6,27 @@ angular.module('meanPortfolio',['ngComponentRouter','about-module', 'projects-mo
         $locationProvider.html5Mode(true);
     })*/
     .value('$routerRootComponent','main')
+    .config(function($locationProvider){
+        // use the HTML5 History API
+        $locationProvider.html5Mode(true);
+    })
     .component('main', {
         template: '<ng-outlet></ng-outlet>',
         controller: MainCtrl,
         $routeConfig: [
-            {path: '/about/', name: 'AboutMe', component: 'aboutComponent', useAsDefault:true},
+            {path: '/', name: 'AboutMe', component: 'aboutComponent', useAsDefault:true},
             {path: '/projects/', name: 'Projects', component: 'projectsComponent'}
         ]
     });
 
-function MainCtrl($location){
+function MainCtrl($location, $locationProvider){
     var ctrl = this;
     ctrl.navShow = false;
 
     ctrl.toggleNav = function(){
         ctrl.navShow = true;
     };
+
 }
 
 MainCtrl.$inject = ['$location'];
