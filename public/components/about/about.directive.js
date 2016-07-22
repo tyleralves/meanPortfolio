@@ -68,11 +68,11 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
           //Hides loading wheel in main.ejs
           $timeout(function(){
             LoadingFactory.svgLoadedToggle();
-          }, 200);
-          selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
-          for(i = 0; i<selfMapArray.length; i++){
-            selfMapArray[i].setAttribute('fill-opacity',.3);
-          }
+            selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
+            for(i = 0; i<selfMapArray.length; i++){
+              selfMapArray[i].setAttribute('fill-opacity',.3);
+            }
+          }, 100);
         }
 
 
