@@ -12,22 +12,9 @@ angular.module('meanPortfolio',['ngComponentRouter','about-module', 'projects-mo
     })
     .component('main', {
         template: '<ng-outlet></ng-outlet>',
-        controller: MainCtrl,
+        controller: 'MainController',
         $routeConfig: [
-            {path: '/', name: 'AboutMe', component: 'aboutComponent', useAsDefault:true},
-            {path: '/projects/', name: 'Projects', component: 'projectsComponent'}
+            {path: '/', name: 'AboutMe', component: 'about', useAsDefault:true},
+            {path: '/projects', name: 'Projects', component: 'projects'}
         ]
     });
-
-function MainCtrl($location, $locationProvider){
-    var ctrl = this;
-    ctrl.navShow = false;
-
-    ctrl.toggleNav = function(){
-        ctrl.navShow = true;
-    };
-
-}
-
-MainCtrl.$inject = ['$location'];
-
