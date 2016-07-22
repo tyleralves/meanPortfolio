@@ -19,8 +19,6 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
       function animateSelfSvg(num){
         if(num<selfPortraitPathArray.length){
           $timeout(function(){
-            //Hides loading wheel in main.ejs
-            LoadingFactory.svgLoadedToggle();
             Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .3}, {duration: 400*(num+1)^2});
             animateSelfSvg(num+1);
           },400);
@@ -51,6 +49,10 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
           }
           //Sets svg visibility to visible
           selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
+
+          //Hides loading wheel in main.ejs
+          LoadingFactory.svgLoadedToggle();
+
           //Begins svg sketch
           animateSelfSvg(0);
           //Highlights each hover-over map in turn
@@ -63,6 +65,10 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
             count++;
           }, 3000);
         }else{
+          //Hides loading wheel in main.ejs
+          $timeout(function(){
+            LoadingFactory.svgLoadedToggle();
+          }, 200);
           selfSvgDoc.querySelector('svg').setAttribute('visibility', 'visible');
           for(i = 0; i<selfMapArray.length; i++){
             selfMapArray[i].setAttribute('fill-opacity',.3);

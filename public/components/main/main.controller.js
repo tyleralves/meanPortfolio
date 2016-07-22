@@ -1,10 +1,9 @@
 /**
  * Created by Tyler on 7/22/2016.
  */
-function MainController(LoadingFactory){
+function MainController(){
   var ctrl = this;
-  //Used to access ctrl.loadingFactory.svgLoaded for loading wheel hide
-  ctrl.loadingFactory = LoadingFactory;
+
   ctrl.navShow = false;
 
   ctrl.toggleNav = function(){
@@ -12,7 +11,6 @@ function MainController(LoadingFactory){
   };
 }
 
-MainController.$inject = ['LoadingFactory'];
 angular
   .module('meanPortfolio')
   .controller('MainController', MainController);
