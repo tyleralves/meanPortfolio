@@ -19,6 +19,8 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
       function animateSelfSvg(num){
         if(num<selfPortraitPathArray.length){
           $timeout(function(){
+            //Hides loading wheel in main.ejs
+            LoadingFactory.svgLoadingToggle();
             Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .3}, {duration: 1400});
             animateSelfSvg(num+1);
           },300);
@@ -30,7 +32,6 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
       }
 
       selfSvgRef.addEventListener('load',function(){
-        LoadingFactory.svgLoadingToggle();
         selfSvgDoc = selfSvgRef.contentDocument;
         //selfImage = selfSvgDoc.querySelector('#self-portrait-image');
         selfMapArray = selfSvgDoc.querySelectorAll('.self-portrait-map');
