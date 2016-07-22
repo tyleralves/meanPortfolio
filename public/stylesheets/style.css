@@ -270,12 +270,6 @@ nav li {
     margin-right: auto;
 }
 
-nav li:hover {
-  background: url("/public/images/arrow.png") no-repeat;
-  background-size: 100px;
-  background-position: left;
-}
-
 ul.nav a:hover, ul.nav a:focus{
     background: transparent;
 }
