@@ -5,6 +5,8 @@ function MainController(){
   var ctrl = this;
   ctrl.navShow = false;
 
+  ctrl.svgLoading = LoadingFactory.svgLoading;
+
   ctrl.toggleNav = function(){
     ctrl.navShow = true;
   };

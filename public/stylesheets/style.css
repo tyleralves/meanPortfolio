@@ -595,3 +595,32 @@ ul.nav a:hover, ul.nav a:focus{
         width: 100%;
     }
 }
+
+.loading-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 47vh;
+    width: 100%;
+}
+
+.loading {
+    width: 50px;
+    -webkit-animation:spin 2s linear infinite;
+    -moz-animation:spin 2s linear infinite;
+    animation:spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% {
+    -moz-transform:rotate(360deg);
+}
+}
+@-webkit-keyframes spin { 100% {
+    -webkit-transform:rotate(360deg);
+}
+}
+@keyframes spin { 100% {
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+}
+}

@@ -5,9 +5,9 @@ angular
   .module('about-module')
   .directive('selfSvg', selfSvgDirective);
 
-selfSvgDirective.$inject = ['$timeout', '$interval', '$window'];
+selfSvgDirective.$inject = ['$timeout', '$interval', '$window', 'LoadingFactory'];
 
-function selfSvgDirective($timeout, $interval, $window){
+function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
   return {
     restrict: 'A',
     scope: {
@@ -21,7 +21,7 @@ function selfSvgDirective($timeout, $interval, $window){
           $timeout(function(){
             Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .3}, {duration: 1400});
             animateSelfSvg(num+1);
-          },700);
+          },300);
         }
       }
 
@@ -30,7 +30,7 @@ function selfSvgDirective($timeout, $interval, $window){
       }
 
       selfSvgRef.addEventListener('load',function(){
-
+        LoadingFactory.svgLoadingToggle();
         selfSvgDoc = selfSvgRef.contentDocument;
         //selfImage = selfSvgDoc.querySelector('#self-portrait-image');
         selfMapArray = selfSvgDoc.querySelectorAll('.self-portrait-map');
