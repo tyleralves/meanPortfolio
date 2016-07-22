@@ -96,7 +96,7 @@ function selfSvgDirective($timeout, $interval, $window){
             summary = labelParts.querySelector('.self-label-summary');
             if(window.innerWidth>992){
               Velocity(label, 'stop');
-              Velocity(label,{'stroke-dashoffset':0},{duration:1000, complete: function(){
+              Velocity(label,{'stroke-dashoffset':0},{duration:600, complete: function(){
                 Velocity(title,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
                 Velocity(summary,{'fill-opacity':[1,0]},{duration:1000, visibility:'visible'});
               }});
@@ -108,7 +108,7 @@ function selfSvgDirective($timeout, $interval, $window){
 
           selfSvgMap[i].addEventListener('mouseout', function(event){
             heartLabelCurrentOffset = parseInt(label.style.strokeDashoffset);
-            heartLabelDuration = ((labelLengthMap - heartLabelCurrentOffset)/labelLength * 1000);
+            heartLabelDuration = ((labelLengthMap - heartLabelCurrentOffset)/labelLength * 600);
             if(window.innerWidth>992) {
               Velocity(label, 'stop');
               Velocity(title, 'stop');
