@@ -20,7 +20,7 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
         if(num<selfPortraitPathArray.length){
           $timeout(function(){
             //Hides loading wheel in main.ejs
-            LoadingFactory.svgLoadingToggle();
+            LoadingFactory.svgLoadedToggle();
             Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .3}, {duration: 400*(num+1)^2});
             animateSelfSvg(num+1);
           },400);

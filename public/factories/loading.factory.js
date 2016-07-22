@@ -7,10 +7,10 @@ angular
 
 function LoadingFactory(){
   var LoadingFactory = {};
-  LoadingFactory.svgLoading = true;
+  LoadingFactory.svgLoaded = false;
 
-  LoadingFactory.svgLoadingToggle = function(){
-    LoadingFactory.svgLoading = false;
+  LoadingFactory.svgLoadedToggle = function(){
+    LoadingFactory.svgLoaded = true;
   };
 
   return LoadingFactory;

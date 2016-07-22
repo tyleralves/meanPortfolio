@@ -11,7 +11,7 @@ angular.module('meanPortfolio',['ngComponentRouter','about-module', 'projects-mo
         $locationProvider.html5Mode(true);
     })
     .component('main', {
-        template: '<ng-outlet></ng-outlet>',
+        templateUrl: 'public/components/main/main.view.ejs',
         controller: 'MainController',
         $routeConfig: [
             {path: '/', name: 'AboutMe', component: 'about', useAsDefault:true},
