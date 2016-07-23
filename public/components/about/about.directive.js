@@ -19,7 +19,7 @@ function selfSvgDirective($timeout, $interval, $window, LoadingFactory){
       function animateSelfSvg(num){
         if(num<selfPortraitPathArray.length){
           $timeout(function(){
-            Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .3}, {duration: 400*(num+1)^2});
+            Velocity(selfPortraitPathArray[num], {'stroke-dashoffset': 0, 'stroke-opacity': 1, 'fill-opacity': .3}, {duration: 1400*(num+1)^2});
             animateSelfSvg(num+1);
           },400);
         }
