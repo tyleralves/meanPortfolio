@@ -113,7 +113,7 @@ body {
 }
 
 body {
-    background-color: #FEFADD;
+    background-color: rgb(254,250,221);
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -173,6 +173,7 @@ a:hover {
     flex-direction: column;
     position: absolute;
     top: 50px;
+    z-index: 999;
 }
 
 #social-logo-full-container {
@@ -330,7 +331,7 @@ ul.nav a:hover, ul.nav a:focus{
 /*Change height of pl-row to accomodate box shadow of .pl-image-outer-container */
 
 .pl-image-outer-container {
-    box-shadow: 1px 2px 5px 2px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 5px 2px rgba(254,250,221,.5);
     height: 87vh;
     overflow: hidden;
     padding-bottom: 5px;
@@ -356,7 +357,7 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-image-help {
-    background-color: rgba(255,255,255,.9);
+    background-color: rgba(254,250,221,.9);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -389,12 +390,12 @@ ul.nav a:hover, ul.nav a:focus{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #000000;
     height: 100%;
     padding: 5px;
     position: absolute;
     width: inherit;
-    background-color: rgba(0,0,0,.9);
+    background-color: rgba(254,250,221,.9);
 }
 
 @media screen and (max-width: 992px){
@@ -444,7 +445,7 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-desc-title {
-    color: chartreuse;
+    color: #000000;
     font-size: 22px;
     letter-spacing: .05em;
     font-weight: 600;
@@ -455,7 +456,7 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-desc-title>small{
-    color: chartreuse;
+    color: #000000;
 }
 
 .pl-desc-btn-container {
@@ -470,9 +471,9 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-desc-btn {    /*Align center, add glyphicon link and stat page*/
-    border: 2px solid chartreuse;
+    border: 2px solid #000000;
     border-radius: 0;
-    color: #7fff00;
+    color: #000000;
     font-size: 17px;
     height: 40px;
     line-height: 1.4em;
@@ -482,14 +483,13 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-desc-label {
-    background-color: chartreuse;
-    color: black;
-    font-weight: 600;
-
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight: 300;
 }
 
 .pl-desc-btn:link, .pl-desc-btn:visited, .pl-desc-btn:hover, .pl-desc-btn:active {
-    color: chartreuse;
+    color: #000000;
 }
 
 .active-project-title {
