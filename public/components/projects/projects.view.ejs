@@ -26,35 +26,35 @@
                             <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''" >
                                 <div class="pl-desc-container">
                                     <h4 class="pl-desc-title">
-                                        Stork Delivery
+                                        Notable Labs Dashboard
                                     </h4>
                                     <div class="pl-desc-summary">
-                                        Stork Delivery is an SPA that allows users in mountain towns to order from their nearest urban stores and have the items delivered. I structured the site using MEAN stack, organized client-side code into Angular 1.5 components, implemented inventory management with MongoDB, and used Bootstrap to supplement design. I wrote very consistent and organized code by strictly following Todd Motto's style guide. I was able to quickly implement some basic skills: building a REST API, user authentication with PassportJS, Heroku deployment, etc.
+                                        An MVP dashboard that allows Notable Labs staff to manage and assign staff to patients, update patient status, and submit test results. Physician clients are able to submit new patients, view their patient's status and test results, and communicate with the staff member assigned to their patients. The app is written in Ruby on Rails using a PostgreSQL database and an Angular 1.5 front-end.
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 pl-desc-link-col">
-                                            <a href="http://storkdelivery.herokuapp.com" class="pl-desc-link" target="_blank">
+                                        <div class="col-md-4">
+                                            <a href="https://notable-sample.herokuapp.com/" class="pl-desc-link" target="_blank">
                                                 <div class="btn pl-desc-btn">Deployed App</div>
                                             </a>
                                         </div>
-                                        <div class="col-md-6">
-                                            <a href="https://github.com/tyleralves/stork-delivery" class="pl-desc-link" target="_blank">
+                                        <div class="col-md-4">
+                                            <a href="https://vimeo.com/182626441" class="pl-desc-link" target="_blank">
+                                                <div class="btn pl-desc-btn">Demo Video</div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="https://github.com/tyleralves/notable-sample" class="pl-desc-link" target="_blank">
                                                 <div class="btn pl-desc-btn">Github Repo</div>
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="pl-desc-labels">
-                                        <span class="label pl-desc-label">NodeJS</span>
+                                        <span class="label pl-desc-label">Ruby on Rails</span>
                                         <span class="label pl-desc-label">Angular 1.5</span>
-                                        <span class="label pl-desc-label">MongoDB</span>
-                                        <span class="label pl-desc-label">Mongoose</span>
-                                        <span class="label pl-desc-label">Express</span>
-                                        <br>
-                                        <span class="label pl-desc-label">Passport</span>
-                                        <span class="label pl-desc-label">JWTWebTokens</span>
+                                        <span class="label pl-desc-label">PostgreSQL</span>
+                                        <span class="label pl-desc-label">Devise Auth</span>
                                         <span class="label pl-desc-label">Heroku</span>
-                                        <span class="label pl-desc-label">Walmart API</span>
                                     </div>
 
                                 </div>
@@ -123,7 +123,7 @@
                                         Wild Trails - GovHack 2016
                                     </h4>
                                     <div class="pl-desc-summary">
-                                        I created Wild Trails in 48 hours as my team’s lead developer for New Zealand’s GovHack 2016. The SPA detects user location or allows location input complemented by the Google Places API, queries the New Zealand's Department of Conservation ArcGIS Server API, then displays nearby hikes using the Google Maps API. I structured the client side using Angular, queried data from DOCs public database using ArcGIS Javascript API and setup the backend using ExpressJS in a NodeJS runtime environment.
+                                        I created Wild Trails in 48 hours as my team’s lead developer for New Zealand’s GovHack 2016. The SPA detects user location or allows location input using Google Places API, queries the New Zealand's Department of Conservation ArcGIS Server API, then displays nearby hikes using the Google Maps API. I structured the client side using Angular, used ArcGIS Javascript API and built the backend using ExpressJS/ NodeJS.
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -161,46 +161,50 @@
                 </div>
             </div>
             <div class="col-md-4 pl-image-col">
-                <div ng-swipe-right="$ctrl.slideOutClass = !$ctrl.slideOutClass" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="4" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(4)" class="pl-image-outer-container">
+                <div ng-swipe-right="$ctrl.slideOutClass = true" ng-swipe-left="$ctrl.slideOutClass = false" project-image-highlight project-num="4" active-highlight-project="$ctrl.activeHighlightProject" ng-show="$ctrl.isCurrentProject(4)" class="pl-image-outer-container">
                     <div class="pl-image-inner-container pl-image-4">
                         <div class="pl-image-scroll">
                             <div class="pl-image-help" ng-show="$ctrl.showHelp">
                                 <div class="glyphicon glyphicon-remove-circle pl-image-help-close" ng-click="$ctrl.showHelp = !$ctrl.showHelp"></div>
                                 <img class="pl-image-help-icon" src="/public/images/swipe.png">
                             </div>
-                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''">
+                            <div class="pl-image-caption" ng-class="$ctrl.slideOutClass?'pl-image-caption-swiped':''" >
                                 <div class="pl-desc-container">
                                     <h4 class="pl-desc-title">
-                                        Personal Portfolio
+                                        Stork Delivery
                                     </h4>
                                     <div class="pl-desc-summary">
-                                        I was able to quickly build out the Express backend, get a mongoDB database setup and install necessary tooling. I used MongooseJS to create and interface with collections for Images, Users, Posts(blog) and Projects. I used Angular 1.5 to create the SPA front end with a focus on using components for organization and reuse. I experimented with VelocityJS and Inkscape to create the drawn-in photo effect on the home page, and created a font file from my handwriting to complete the Engineering Design style.
+                                        Stork Delivery is an SPA that allows users in mountain towns to order from their nearest urban stores and have the items delivered. I structured the site using MEAN stack, organized client-side code into Angular 1.5 components, implemented inventory management with MongoDB, and used Bootstrap to supplement design. I wrote very consistent and organized code by strictly following Todd Motto's style guide. I was able to quickly implement some basic skills: building a REST API, user authentication with PassportJS, Heroku deployment, etc.
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <a href="#" class="pl-desc-link" target="_blank">
+                                        <div class="col-md-6 pl-desc-link-col">
+                                            <a href="http://storkdelivery.herokuapp.com" class="pl-desc-link" target="_blank">
                                                 <div class="btn pl-desc-btn">Deployed App</div>
                                             </a>
                                         </div>
                                         <div class="col-md-6">
-                                            <a href="https://github.com/tyleralves/meanPortfolio" class="pl-desc-link" target="_blank">
+                                            <a href="https://github.com/tyleralves/stork-delivery" class="pl-desc-link" target="_blank">
                                                 <div class="btn pl-desc-btn">Github Repo</div>
                                             </a>
                                         </div>
                                     </div>
+
                                     <div class="pl-desc-labels">
-                                        <span class="label pl-desc-label">Velocity</span>
+                                        <span class="label pl-desc-label">NodeJS</span>
+                                        <span class="label pl-desc-label">Angular 1.5</span>
                                         <span class="label pl-desc-label">MongoDB</span>
                                         <span class="label pl-desc-label">Mongoose</span>
                                         <span class="label pl-desc-label">Express</span>
+                                        <br>
                                         <span class="label pl-desc-label">Passport</span>
-                                        <span class="label pl-desc-label">Angular 1.5</span>
+                                        <span class="label pl-desc-label">JWTWebTokens</span>
                                         <span class="label pl-desc-label">Heroku</span>
+                                        <span class="label pl-desc-label">Walmart API</span>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

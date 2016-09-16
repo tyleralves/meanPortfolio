@@ -419,8 +419,9 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-image-1 {
-    background: url("/public/images/storkDeliveryScreen.png") no-repeat;
+    background: url("/public/images/notableScreen.png") no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
 .pl-image-2 {
@@ -434,9 +435,8 @@ ul.nav a:hover, ul.nav a:focus{
 }
 
 .pl-image-4 {
-    background: url("/public/images/portfolioScreen.png") no-repeat;
+    background: url("/public/images/storkDeliveryScreen.png") no-repeat;
     background-size: cover;
-    background-position: center;
 }
 
 .pl-desc-container {
